@@ -880,7 +880,7 @@
   }
   
   .topbar-style-one .topbar-actions .header-account .dropdown-menu .dropdown-item:hover a {
-    color: #b4b2b2;
+    color: #ffffff;
   }
   
   .topbar-style-one .topbar-actions .header-account .dropdown-menu.show {
@@ -1816,7 +1816,7 @@
   }
   
   .hero-style-one .slide-background {
-    background: url(../images/banner/hero-banner1.png) no-repeat center;
+    background: url(../images/banner/hero-banner2.png) no-repeat center;
     background-size: cover;
     position: absolute;
     inset: 0;
