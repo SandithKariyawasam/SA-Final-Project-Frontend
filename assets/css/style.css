@@ -1088,6 +1088,7 @@
     }
   }
   
+
   header .header-style-one {
     position: absolute;
     top: 0;
@@ -1096,7 +1097,7 @@
     width: 100%;
     z-index: 33;
     border-bottom: 1px solid #202a34;
-    background: 0 0;
+    background: #000915;
   }
   
   header .header-style-one .main-nav ul li .sub-menu {

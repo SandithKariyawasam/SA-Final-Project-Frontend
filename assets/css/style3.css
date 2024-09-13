@@ -1,0 +1,95 @@
+.head {
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+    background-position: center;
+    background-size: cover;
+    color: aliceblue;
+    display: flex;
+}
+
+.side-nav {
+    width: 250px;
+    height: 100%;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    padding: 30px 15px;
+    background: #000915;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.user-name h2 {
+    font-size: 12px;
+    text-align: center;
+}
+
+.user h2 {
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.user-img {
+    width: 40px;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.star-img {
+    width: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0 15px;
+}
+
+.head ul li {
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.head ul li:hover {
+    color: red;
+    transition: .6s;
+}
+
+.head ul li img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.head ul li p {
+    white-space: nowrap;
+}
+
+
+.main_content{
+    margin-top: 10%;
+    width: 70%;
+    margin-left: 350px;
+}
+
+.main_content .header{
+    font-size: 30px;
+    padding: 10px;
+    background: #fff;
+    color: #000915;
+    border-bottom: 1px solid #e0e4e8;
+}
