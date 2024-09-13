@@ -767,25 +767,25 @@
 
   
   document.addEventListener("DOMContentLoaded", function() {
-    const tabs = document.querySelectorAll('.nav-tabs a'); // Get all tab links
-    const tabContent = document.querySelectorAll('.tab-pane'); // Get all tab content
+    const tabs = document.querySelectorAll('.nav-tabs a');
+    const tabContent = document.querySelectorAll('.tab-pane'); 
 
-    // Function to switch tab content
+
     function switchTab(e) {
-        e.preventDefault(); // Prevent default link behavior
+        e.preventDefault(); 
 
-        // Remove 'active' and 'show' classes from all tabs and content
+        
         tabs.forEach(tab => tab.classList.remove('active'));
         tabContent.forEach(content => content.classList.remove('show', 'active'));
 
-        // Add 'active' class to the clicked tab
+        
         this.classList.add('active');
 
-        // Show corresponding tab content
+        
         const activeTab = document.querySelector(this.getAttribute('href'));
         activeTab.classList.add('show', 'active');
     }
 
-    // Attach the click event listener to each tab
+    
     tabs.forEach(tab => tab.addEventListener('click', switchTab));
 });

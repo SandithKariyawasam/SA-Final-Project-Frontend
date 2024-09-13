@@ -64,7 +64,10 @@ ul {
     justify-content: flex-start;
     cursor: pointer;
 }
-
+.head ul a {
+    text-decoration: none;
+    color: white;
+}
 .head .ul li:hover {
     color: red;
     transition: .6s;
@@ -94,7 +97,7 @@ ul {
     border-bottom: 1px solid #e0e4e8;
 }
 
-/*Dashboard Section Starts Here*/
+  /*Profile Section Starts Here*/
 .dashboard-widget {
     margin-top: 20px;
     border-radius: 20px;
@@ -240,7 +243,6 @@ ul {
     transition: all ease 0.3s;
   }
   
-  /*Profile Section Starts Here*/
 .dash-pro-item .header {
     justify-content: space-between;
     margin-bottom: 30px;
@@ -352,3 +354,25 @@ ul {
     background-color: #00ff1e; 
     color: black;
 }
+
+ /*Dashboard Section Starts Here*/
+
+
+
+.dash-widget {
+    margin-top: 20px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 6px 18px 0px rgba(16, 5, 54, 0.17);
+    padding: 30px 20px;
+  }
+  .dash-item {
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2.487px 1.678px 57px 0px rgba(16, 5, 54, 0.13);
+    margin-bottom: 10px;
+    padding: 40px 15px 30px;
+    text-align: center;
+  }
+
+  
