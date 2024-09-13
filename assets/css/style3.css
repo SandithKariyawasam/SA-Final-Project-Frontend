@@ -65,7 +65,7 @@ ul {
     cursor: pointer;
 }
 
-.head ul li:hover {
+.head .ul li:hover {
     color: red;
     transition: .6s;
 }
@@ -144,6 +144,7 @@ ul {
   }
   .dashboard-widget .dashboard-title {
     border-bottom: 1px solid #d5d7f3;
+    margin-bottom: 20px;
   }
   .dashboard-widget .dashboard-title .title {
     padding-bottom: 20px;
@@ -239,3 +240,115 @@ ul {
     transition: all ease 0.3s;
   }
   
+  /*Profile Section Starts Here*/
+.dash-pro-item .header {
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  .dash-pro-item .header .title {
+    margin: 0;
+    width: calc(100% - 80px);
+  }
+  .dash-pro-item .header .edit {
+    text-align: right;
+    width: 80px;
+    cursor: pointer;
+  }
+  .dash-pro-item .dash-pro-body li {
+    color: #37406f;
+    padding: 0;
+    margin-bottom: 8px;
+  }
+  .dash-pro-item .dash-pro-body li .info-name {
+    width: 135px;
+    position: relative;
+    padding-right: 15px;
+  }
+  .dash-pro-item .dash-pro-body li .info-name:after {
+    content: ":";
+    position: absolute;
+    right: 0;
+  }
+  .dash-pro-item .dash-pro-body li .info-value {
+    width: calc(100% - 135px);
+    padding-left: 20px;
+  }
+  .dash-pro-item .dash-pro-body li .info-value i {
+    font-size: 14px;
+  }
+  
+  .dash-bid-item .header {
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  .dash-bid-item .header .title {
+    margin: 0;
+  }
+  .dash-bid-item .button-area {
+    margin: -10px;
+    border: none;
+  }
+  .dash-bid-item .button-area li {
+    padding: 10px;
+  }
+  .dash-bid-item .button-area li .custom-button {
+    text-transform: capitalize;
+  }
+  .dash-bid-item .button-area li .custom-button.active {
+    color: #ffffff;
+    background: -ms-linear-gradient(92deg, #ff8359 0%, #ffdf40 100%);
+  }
+  .dash-bid-item .button-area .list li {
+    padding: 0 20px;
+  }
+  
+  .sort-winning-bid {
+    align-items: center;
+    justify-content: center;
+    color: #171d1c;
+    font-size: 16px;
+    padding: 10px;
+  }
+  .sort-winning-bid .item {
+    margin-right: 8px;
+  }
+  .sort-winning-bid .select-bar {
+    height: 37px;
+    border-radius: 19px;
+    width: 135px;
+    padding: 0;
+    padding-left: 30px;
+  }
+  .sort-winning-bid .select-bar .current {
+    line-height: 37px;
+    text-transform: capitalize;
+    font-size: 16px;
+    color: #171d1c;
+  }
+  .sort-winning-bid .select-bar::after {
+    height: 7px;
+    width: 7px;
+    border-color: #171d1c;
+  }
+
+  button{
+    position: absolute;
+    justify-content: right;
+  }
+  .button-right {
+    position: fixed;
+    right: 20px; 
+    bottom: 20px; 
+    padding: 10px 20px;
+    background-color: #000000; 
+    color: white; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button-right:hover {
+    background-color: #00ff1e; 
+    color: black;
+}
