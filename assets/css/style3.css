@@ -93,3 +93,149 @@ ul {
     color: #000915;
     border-bottom: 1px solid #e0e4e8;
 }
+
+/*Dashboard Section Starts Here*/
+.dashboard-widget {
+    margin-top: 20px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 6px 18px 0px rgba(16, 5, 54, 0.17);
+    padding: 30px 20px;
+  }
+  .dashboard-widget .user {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .dashboard-widget .user .thumb-area {
+    width: 100px;
+    margin: 0 auto 30px;
+    position: relative;
+  }
+  .dashboard-widget .user .thumb-area .profile-pic-edit {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 16px;
+    color: #ffffff;
+    background: -ms-linear-gradient(135deg, rgb(135, 57, 230) 0%, rgb(84, 150, 255) 100%);
+    box-shadow: 0px 19px 56px 0px rgba(0, 0, 0, 0.2);
+    margin: 0;
+  }
+  .dashboard-widget .user .thumb-area .thumb {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .dashboard-widget .user .thumb-area .thumb img {
+    width: 100%;
+  }
+  .dashboard-widget .user .content .title {
+    margin-bottom: 5px;
+  }
+  .dashboard-widget h2, .dashboard-widget h3, .dashboard-widget h4, .dashboard-widget h5, .dashboard-widget h6 {
+    color: #37406f;
+  }
+  .dashboard-widget h2 a, .dashboard-widget h3 a, .dashboard-widget h4 a, .dashboard-widget h5 a, .dashboard-widget h6 a {
+    color: #37406f;
+  }
+  .dashboard-widget .dashboard-title {
+    border-bottom: 1px solid #d5d7f3;
+  }
+  .dashboard-widget .dashboard-title .title {
+    padding-bottom: 20px;
+  }
+  
+  .dashboard-menu li {
+    padding: 0;
+    margin-bottom: 1px;
+  }
+  .dashboard-menu li a {
+    padding: 10px 20px;
+    color: #37406f;
+    text-transform: capitalize;
+    font-weight: 500;
+    line-height: 30px;
+    border-radius: 25px;
+    display: block;
+  }
+  .dashboard-menu li a i {
+    font-weight: 400;
+    margin-right: 10px;
+    color: #ee4730;
+  }
+  .dashboard-menu li a:hover, .dashboard-menu li a.active {
+    background: #f7f6fc;
+  }
+  
+  .dashboard-item {
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2.487px 1.678px 57px 0px rgba(16, 5, 54, 0.13);
+    margin-bottom: 30px;
+    padding: 40px 15px 30px;
+    text-align: center;
+  }
+  .dashboard-item .thumb {
+    height: 80px;
+    margin-bottom: 16px;
+  }
+  .dashboard-item .thumb img {
+    max-width: 100%;
+  }
+  
+  .dashboard-purchasing-tabs .nav-tabs {
+    margin-bottom: 25px;
+  }
+  .dashboard-purchasing-tabs .nav-tabs li {
+    padding: 0 10px;
+  }
+  .dashboard-purchasing-tabs .nav-tabs li:first-child {
+    padding-left: 0;
+  }
+  .dashboard-purchasing-tabs .nav-tabs li:last-child {
+    padding-right: 0;
+  }
+  .dashboard-purchasing-tabs .nav-tabs li a {
+    padding: 10px 0;
+    position: relative;
+    color: #37406f;
+  }
+  .dashboard-purchasing-tabs .nav-tabs li a::after {
+    bottom: -1px;
+    left: 0;
+    right: 100%;
+    top: calc(100% - 3px);
+    background: #ee4730;
+    position: absolute;
+    content: "";
+    transition: all ease 0.3s;
+  }
+  .dashboard-purchasing-tabs .nav-tabs li a.active::after {
+    right: 0;
+  }
+  
+  .purchasing-table {
+    width: 100%;
+    font-size: 16px;
+  }
+  .purchasing-table thead th {
+    color: #37406f;
+  }
+  .purchasing-table tbody tr {
+    font-size: 16px;
+    color: #171d1c;
+    font-weight: 500;
+  }
+  .purchasing-table tbody tr:hover {
+    background: rgba(215, 217, 245, 0.078);
+  }
+  .purchasing-table tbody tr td {
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(215, 217, 245, 0.502);
+    transition: all ease 0.3s;
+  }
+  
