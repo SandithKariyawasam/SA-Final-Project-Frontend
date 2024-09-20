@@ -230,7 +230,7 @@
     }
   
     55% {
-      background-color: #d90a2c;
+      background-color: #00ff15;
     }
   
     100% {
@@ -258,7 +258,7 @@
     }
   
     55% {
-      background-color: #d90a2c;
+      background-color: #00ff15;
     }
   
     100% {
@@ -876,7 +876,7 @@
   }
   
   .topbar-style-one .topbar-actions .header-account .dropdown-menu .dropdown-item:hover {
-    background: #111;
+    background: #04ff00;
   }
   
   .topbar-style-one .topbar-actions .header-account .dropdown-menu .dropdown-item:hover a {
@@ -1133,7 +1133,7 @@
   
   header .header-style-one .main-nav ul>li a:hover {
     background: 0 0;
-    color: #f96822!important;
+    color: #04ff00!important;
   }
   
   header .header-style-one .main-nav .fl {
@@ -1190,12 +1190,12 @@
   }
   
   header .header-style-one .main-nav ul li:hover>a {
-    color: #f96822;
+    color: #04ff00;
   }
   
   header .header-style-one .main-nav ul li:hover>a::before {
     opacity: 1;
-    background: #f96822;
+    background: #04ff00;
   }
   
   header .header-style-one .main-nav ul li a {
@@ -1231,7 +1231,7 @@
     content: "";
     position: absolute;
     height: 2px;
-    background: #f96822;
+    background: #04ff00;
     top: 50%;
     transform: translateY(-50%);
     left: 2px;
@@ -1241,13 +1241,13 @@
   }
   
   header .header-style-one .main-nav ul li ul.sub-menu>li a.active {
-    color: #f96822;
+    color: #04ff00;
     font-weight: 600;
   }
   
   header .header-style-one .main-nav ul li ul.sub-menu>li a:hover {
-    background: rgba(249,104,34,.1);
-    color: #f96822!important;
+    background: rgba(64, 194, 38, 0.1);
+    color: #000000!important;
     padding-left: 15px;
   }
   
@@ -1277,7 +1277,7 @@
   }
   
   header .header-style-one .main-nav>ul>li>a.active {
-    color: #f96822;
+    color: #04ff00;
     font-weight: 600;
     font-size: 16px;
   }
@@ -1468,7 +1468,7 @@
   }
   
   header .header-style-one .header-account .dropdown-menu .dropdown-item:hover a {
-    color: #b4b2b2;
+    color: #04ff00;
   }
   
   header .header-style-one .header-account .dropdown-menu.show {
@@ -1558,7 +1558,7 @@
   
   header .header-style-two .main-nav ul>li a:hover {
     background: 0 0;
-    color: #f96822!important;
+    color:#04ff00 !important;
   }
   
   header .header-style-two .main-nav .fl {
@@ -1615,12 +1615,12 @@
   }
   
   header .header-style-two .main-nav ul li:hover>a {
-    color: #f96822;
+    color: #04ff00;
   }
   
   header .header-style-two .main-nav ul li:hover>a::before {
     opacity: 1;
-    background: #f96822;
+    background: #04ff00;
   }
   
   header .header-style-two .main-nav ul li a {
@@ -1666,7 +1666,7 @@
   }
   
   header .header-style-two .main-nav ul li ul.sub-menu>li a.active {
-    color: #f96822;
+    color: #04ff00;
     font-weight: 600;
   }
   
@@ -1702,7 +1702,7 @@
   }
   
   header .header-style-two .main-nav>ul>li>a.active {
-    color: #f96822;
+    color: #04ff00;
     font-weight: 600;
     font-size: 16px;
   }
