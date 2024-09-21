@@ -68,7 +68,7 @@ ul {
     color: white;
 }
 .head .ul li:hover {
-    color: red;
+    color: #00ff1e;
     transition: .6s;
 }
 
@@ -212,7 +212,7 @@ ul {
     left: 0;
     right: 100%;
     top: calc(100% - 3px);
-    background: #ee4730;
+    background: #00ff1e;
     position: absolute;
     content: "";
     transition: all ease 0.3s;

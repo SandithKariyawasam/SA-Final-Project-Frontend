@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Bidgen - Bid and Auction HTML Template</title>
+    <title>AutoBid</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="assets/images/favicon.png" type="image/gif" sizes="20x20">
+    <link rel="icon" href="assets/images/AutoBid logo.png" type="image/gif" sizes="20x20">
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/boxicons.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
@@ -39,14 +39,23 @@
     </div>
     <header>
       <div class="header-area header-style-one px-md-5">
-        <div class="container">
+        <div class="container-fluid">
           <div class="row">
             <div class="col-xl-2 align-items-center d-xl-flex d-lg-block">
               <div class="nav-logo d-flex justify-content-between align-items-center">
-                <a href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
+                <a href="index.html"><img src="assets/images/AutoBid logo.png"style="width: 60px;" alt="logo"></a>
                 <div class="d-flex align-items-center gap-4">
                   <ul class="nav-actions nav-inner-actions d-flex d-xl-none">
-                    <li class="search-btn"><i class="bi bi-search"></i></li>
+                    <li class="header-account me-0 position-relative">
+                      <a href="login.html" id="dropdownMenu4" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-fill"></i>
+                      </a>
+                      <ul class="dropdown-menu account-list-mobile" aria-labelledby="dropdownMenu4">
+                        <li class="dropdown-item"><a href="login.html">My account</a></li>
+                        <li class="dropdown-item"><a href="login.html">Login</a></li>
+                        <li class="dropdown-item mb-0"><a href="register.html">Register</a></li>
+                      </ul>
+                    </li>
                   </ul>
                   <div class="mobile-menu d-flex ">
                     <a href="javascript:void(0)" class="hamburger d-block d-xl-none">
@@ -58,22 +67,14 @@
                 </div>
               </div>
             </div>
-            <div class="col-xl-7 d-flex justify-content-center ">
+            <div class="col-xl-5">
               <nav class="main-nav">
                 <div class="inner-logo d-xl-none text-center mt-4">
                   <a href="#"><img src="assets/images/logo-dark.png" alt></a>
                 </div>
                 <ul>
-                  <li class="has-child-menu">
-                    <a href="javascript:void(0)">Home</a>
-                    <i class="fl flaticon-plus">+</i>
-                    <ul class="sub-menu">
-                      <li><a href="index.html">Home Accessories </a></li>
-                      <li><a href="index-car.html">Home Car</a></li>
-                      <li><a href="index-land.html">Home Land</a></li>
-                      <li><a href="index-art-light.html">Home Light-art</a></li>
-                      <li><a href="index-art-dark.html">Home Dark-art</a></li>
-                    </ul>
+                  <li>
+                    <a href="index.html">Home</a>
                   </li>
                   <li class="has-child-menu">
                     <a href="javascript:void(0)">Auction</a>
@@ -88,44 +89,31 @@
                     <i class="fl flaticon-plus">+</i>
                     <ul class="sub-menu">
                       <li><a href="about.html">about</a></li>
-                      <li><a href="winner.html">winner</a></li>
                       <li><a href="login.html">login</a></li>
                       <li><a href="register.html">register</a></li>
-                      <li><a href="faq.html">faq</a></li>
                       <li><a href="privacy.html">Privacy Policy</a></li>
-                      <li><a href="404.html">Error</a></li>
-                    </ul>
-                  </li>
-                  <li class="has-child-menu">
-                    <a href="javascript:void(0)">Blog</a>
-                    <i class="fl flaticon-plus">+</i>
-                    <ul class="sub-menu">
-                      <li><a href="blog.html">Blog</a></li>
-                      <li><a href="blog-standard.html">Blog Standard</a></li>
-                      <li><a href="blog-details.html">Blog Details</a></li>
                     </ul>
                   </li>
                   <li><a href="contact.html">contact</a></li>
                 </ul>
-                <div class="contact-mail inner-contact-mail mt-5 d-block d-xl-none">
-                  <span>Message Us</span>
-                  <a href="/cdn-cgi/l/email-protection#32414742425d404672574a535f425e571c515d5f"><span class="__cf_email__" data-cfemail="c2b1b7b2b2adb0b682a7baa3afb2aea7eca1adaf">[email&#160;protected]</span></a>
-                </div>
               </nav>
             </div>
-            <div class="col-xl-3 d-xl-flex align-items-center justify-content-end d-none">
+            <div class="col-xl-5 d-xl-flex align-items-center justify-content-end d-none">
               <div class="nav-right d-flex align-items-center">
-                <ul class="nav-actions">
-                  <li class="search-btn"><i class="bi bi-search"></i></li>
-                </ul>
-                <div class="contact-no d-flex align-items-center">
-                  <div class="contact-icon">
-                    <img src="assets/images/icon/phone-w.svg" alt>
-                  </div>
-                  <div class="contact-info">
-                    <p>Hot Line Number</p>
-                    <h6><a href="tel:+8801761111456">+880 176 1111 456</a></h6>
-                  </div>
+                <div class="nav-actions d-flex align-items-center">
+                  <ul class="d-flex">
+                    <li class="search-btn d-block d-xxl-none"><i class="bi bi-search"></i></li>
+                    <li class="header-account me-0 position-relative">
+                      <a id="dropdownMenu2" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-fill"></i>
+                      </a>
+                      <ul class="dropdown-menu account-list" aria-labelledby="dropdownMenu2">
+                        <li class="dropdown-item"><a href="MyAccount.html">My account</a></li>
+                        <li class="dropdown-item"><a href="login.html">Login</a></li>
+                        <li class="dropdown-item"><a href="register.html">Register</a></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -162,51 +150,10 @@
             <div class="tab-content">
               <div class="tab-pane big-image fade show active" id="gallery-img1">
                 <span class="eg-badge">ID 0195638</span>
-                <img src="assets/images/product/details11.png" alt>
-              </div>
-              <div class="tab-pane big-image fade" id="gallery-img2">
-                <span class="eg-badge">ID 0195638</span>
-                <img src="assets/images/product/details22.png" alt>
-              </div>
-              <div class="tab-pane big-image fade" id="gallery-img3">
-                <span class="eg-badge">ID 0195638</span>
-                <img src="assets/images/product/details33.png" alt>
-              </div>
-              <div class="tab-pane big-image fade show" id="gallery-img4">
-                <span class="eg-badge">ID 0195638</span>
-                <img src="assets/images/product/details44.png" alt>
-              </div>
-              <div class="tab-pane big-image fade" id="gallery-img5">
-                <span class="eg-badge">ID 0195638</span>
-                <img src="assets/images/product/details55.png" alt>
+                <img src="assets/images/vehicle/Audi A4 S Line/1.webp" alt>
               </div>
             </div>
             <ul class="nav small-image-list d-flex justify-content-md-between justify-content-center gap-md-4 gap-2">
-              <li class="nav-item">
-                <div id="details-img1" data-bs-toggle="pill" data-bs-target="#gallery-img1" aria-controls="gallery-img1">
-                  <img src="assets/images/product/details1.png" alt>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div id="details-img2" data-bs-toggle="pill" data-bs-target="#gallery-img2" aria-controls="gallery-img2">
-                  <img src="assets/images/product/details2.png" alt>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div id="details-img3" data-bs-toggle="pill" data-bs-target="#gallery-img3" aria-controls="gallery-img3">
-                  <img src="assets/images/product/details3.png" alt>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div id="details-img4" data-bs-toggle="pill" data-bs-target="#gallery-img4" aria-controls="gallery-img4">
-                  <img src="assets/images/product/details4.png" alt>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div id="details-img5" data-bs-toggle="pill" data-bs-target="#gallery-img5" aria-controls="gallery-img5">
-                  <img src="assets/images/product/details5.png" alt>
-                </div>
-              </li>
             </ul>
             <div class="item-describe-area">
               <ul class="nav nav-pills d-flex justify-content-center gap-sm-4 gap-1" id="pills-tab" role="tablist">
@@ -216,66 +163,40 @@
                 <li class="nav-item" role="presentation">
                   <button class="nav-link describe-btn" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Location</button>
                 </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link describe-btn" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">About Video</button>
-                </li>
               </ul>
               <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                   <div class="describe-content">
-                    <p class="mb-15">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis molestiae dolore, quaerat illo adipisci fugiat voluptatibus eligendi provident animi qui totam commodi a dolor saepe labore tempore.</p>
-                    <p> Consequuntur doloremque accusantium aspernatur illo labore quisquam consectetur tenetur temporibus, eos ad, fuga cumque suscipit quasi iure veniam, omnis in iste ipsa optio. Sint voluptates sed inventore saepe, obcaecati dolores rerum aliquid eaque.</p>
+                    <p class="mb-15">The 2017 Audi A4 S Line is a luxury sedan that offers a blend of performance, style, and advanced technology. Powered by a 2.0-liter turbocharged engine, it delivers around 252 horsepower with smooth acceleration.</p>
+                    <p> The S Line package adds sporty design elements like a more aggressive front bumper, side skirts, and 18-inch alloy wheels. Inside, it features premium materials, a user-friendly infotainment system, and spacious seating. With its precise handling, Quattro all-wheel drive option, and modern driver-assistance features, the Audi A4 S Line provides a refined and dynamic driving experience.</p>
                   </div>
                 </div>
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                   <div class="map-area">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3649.73467103074!2d90.36181521536365!3d23.828032291722206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c13a21730b43%3A0xb14a9c52d01c00d9!2sMirpur-12%20Bus%20Stand!5e0!3m2!1sen!2sbd!4v1640171021567!5m2!1sen!2sbd" style="border-radius: 5px;" allowfullscreen loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.5054332309905!2d79.95283667570551!3d6.707998220990409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae248e6541001d7%3A0xa12eacc092b592ba!2sPX44%2BW4V%20Alubomulla%20Maha%20Vidyalaya%2C%20Panadura%2012524!5e0!3m2!1sen!2slk!4v1726935995372!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>  
                   </div>
                 </div>
-                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                  <div class="about-video">
-                    <div class="wrapper">
-                      <div class="video-pluse">
-                        <span style="--i:1;"></span>
-                        <span style="--i:5;"></span>
-                        <span style="--i:3;"></span>
-                        <a href="https://www.youtube.com/watch?v=u31qwQUeGuM" class="video-frame video-icon"><i class="bx bx-play"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="details-social-area">
-                <h5 class="wdget-title">Share Now</h5>
-                <ul>
-                  <li><a href="https://www.facebook.com"><i class="bx bxl-facebook"></i></a></li>
-                  <li><a href="https://twitter.com"><i class="bx bxl-twitter"></i></a></li>
-                  <li><a href="https://www.pinterest.com"><i class="bx bxl-pinterest-alt"></i></a></li>
-                  <li><a href="https://www.instagram.com"><i class="bx bxl-instagram"></i></a></li>
-                </ul>
               </div>
             </div>
           </div>
           <div class="col-lg-6">
             <div class="widget-right-area">
-              <h4>Lamborghini Huracán Red Mercedes AMG</h4>
-              <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit</p>
+              <h4>Audi A4 2017 S line</h4>
+              <p class="paragraph">The 2017 Audi A4 S Line is a sporty luxury sedan with a 2.0-liter turbo engine, sleek design, and premium interior. It offers sharp handling, advanced tech, and an optional Quattro all-wheel drive for a dynamic driving experience.</p>
               <div class="single-widget">
                 <h5 class="wdget-title">Product Overview</h5>
                 <ul class="widget-list">
-                  <li><span>Body Style :</span><span>Convertible</span></li>
-                  <li><span>Transmission :</span><span>6-Speed Manual</span></li>
-                  <li><span>Drivetrain :</span><span>Rear Wheel Drive</span></li>
-                  <li><span>Exaterion :</span><span>Lime Gold Drive</span></li>
-                  <li><span>Interior :</span><span>Agate Grey</span></li>
-                  <li><span>Miles :</span><span>12</span></li>
-                  <li><span>Doors :</span><span>02</span></li>
-                  <li><span>Engine :</span><span>02</span></li>
-                  <li><span>Passengers :</span><span>Convertible</span></li>
-                  <li><span>Fuel Mileage :</span><span>3.4L mid engin V6</span></li>
+                  <li><span>Make :</span><span>Audi</span></li>
+                  <li><span>Model :</span><span>A4</span></li>
+                  <li><span>Color :</span><span>White</span></li>
+                  <li><span>Transmission :</span><span>Automatic</span></li>
+                  <li><span>Condition :</span><span>Used</span></li>
+                  <li><span>Year :</span><span>2017</span></li>
+                  <li><span>Mileage :</span><span>59,000km</span></li>
                   <li><span>Fuel Type :</span><span>Petrol</span></li>
-                  <li><span>Condition :</span><span>Brand New</span></li>
-                  <li><span>Warranty :</span><span>3 Years Limited</span></li>
+                  <li><span>Engine Size :</span><span>1,400cc</span></li>
+                  <li><span>Doors :</span><span>4-door</span></li>
+                  <li><span>VIN :</span><span>A4 2017 Sline</span></li>
                 </ul>
               </div>
               <div class="single-widget">
@@ -296,7 +217,6 @@
                   </div>
                   <div class="bidding-content">
                     <h6><a href="winner.html">Robart FOX</a></h6>
-                    <p>Bid 23 minutes ago for 24.5$</p>
                   </div>
                 </div>
                 <div class="bidding-item gap-sm-4 gap-2">
@@ -305,7 +225,6 @@
                   </div>
                   <div class="bidding-content">
                     <h6><a href="winner.html">Leslie Alexander</a></h6>
-                    <p>Bid 23 minutes ago for 24.5$</p>
                   </div>
                 </div>
                 <div class="bidding-item gap-sm-4 gap-2">
@@ -314,7 +233,6 @@
                   </div>
                   <div class="bidding-content">
                     <h6><a href="winner.html">Jane Cooper</a></h6>
-                    <p>Bid 23 minutes ago for 24.5$</p>
                   </div>
                 </div>
               </div>
@@ -323,99 +241,14 @@
         </div>
       </div>
     </section>
-    <section class="best-auction-section pt-110">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="section-title-eg">
-              <h3>Best Related Auction</h3>
-            </div>
-          </div>
-        </div>
-        <div class="row g-4">
-          <div class="col-lg-4 col-md-6 ">
-            <div class="product-card product-beta-md">
-              <div class="product-header">
-                <h5 class="product-title"><a href="product-details.html">Smart fortwo Red Mercedes AMG</a></h5>
-                <h4 class="price">$3,526</h4>
-              </div>
-              <div class="product">
-                <img src="assets/images/product/lp-1.png" alt>
-                <div class="id"><span>ID 0195667</span></div>
-              </div>
-              <div class="product-disc">
-                <div class="product-acution">
-                  <div class="cv">
-                    <span>current Bid</span>
-                    <h6>$2,079.00</h6>
-                  </div>
-                  <div class="countdown" id="week-countdown1">
-                    <h6>&nbsp;</h6>
-                    <span>Waiting For Bid</span>
-                  </div>
-                </div>
-                <a href="auction-details.html" class="bid-btn">Submit A Bid</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="product-card product-beta-md">
-              <div class="product-header">
-                <h5 class="product-title"><a href="product-details.html">Smart fortwo Red Mercedes AMG</a></h5>
-                <h4 class="price">$3,526</h4>
-              </div>
-              <div class="product">
-                <img src="assets/images/product/lp-2.png" alt>
-                <div class="id"><span>ID 0195668</span></div>
-              </div>
-              <div class="product-disc">
-                <div class="product-acution">
-                  <div class="cv">
-                    <span>current Bid</span>
-                    <h6>$2,079.00</h6>
-                  </div>
-                  <div class="countdown" id="week-countdown2">
-                    <h6>&nbsp;</h6>
-                    <span>Waiting For Bid</span>
-                  </div>
-                </div>
-                <a href="auction-details.html" class="bid-btn">Submit A Bid</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="product-card product-beta-md">
-              <div class="product-header">
-                <h5 class="product-title"><a href="product-details.html">Smart fortwo Red Mercedes AMG</a></h5>
-                <h4 class="price">$3,526</h4>
-              </div>
-              <div class="product">
-                <img src="assets/images/product/lp-3.png" alt>
-                <div class="id"><span>ID 0195669</span></div>
-              </div>
-              <div class="product-disc">
-                <div class="product-acution">
-                  <div class="cv">
-                    <span>current Bid</span>
-                    <h6>$2,079.00</h6>
-                  </div>
-                  <div class="countdown" id="week-countdown3">
-                    <h6>&nbsp;</h6>
-                    <span>Waiting For Bid</span>
-                  </div>
-                </div>
-                <a href="auction-details.html" class="bid-btn">Submit A Bid</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer class="footer-area footer-style-one mt-110">
+    
+    <!--Footer Part-->
+
+    <footer class="footer-area footer-style-one">
       <div class="container">
         <div class="footer-main">
-          <div class="row gy-5 d-flex justify-content-center">
-            <div class="col-lg-4 col-md-6">
+          <div class="row gy-5">
+            <div class="col-lg-4">
               <div class="footer-widget">
                 <form action="#" id="subscribe_form">
                   <h3 class="form-title">subscribe us</h3>
@@ -438,7 +271,7 @@
                       <i class="bi bi-envelope"></i>
                     </div>
                     <div class="link">
-                      <a href="info@example.com"><span class="__cf_email__" data-cfemail="a2cbccc4cde2c7dac3cfd2cec78cc1cdcf">[email&#160;protected]</span></a>
+                      <a href="info@example.com"><span class="__cf_email__" data-cfemail="51383f373e113429303c213d347f323e3c">[email&#160;protected]</span></a>
                     </div>
                   </div>
                   <div class="contact-option">
@@ -446,60 +279,48 @@
                       <i class="bi bi-geo-alt"></i>
                     </div>
                     <div class="link">
-                      <a href="tel:8801761111456">168/170, Avenue 01, ADDRESS, Bangladesh</a>
+                      <a href="tel:8801761111456">168/170, Avenue 01,xyz, Bangladesh</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-2 col-md-6">
-              <div class="footer-widget">
-                <h5 class="widget-title">Quick Links</h5>
-                <ul class="widget-links">
-                  <li><a href="login.html">My Account</a></li>
-                  <li><a href="about.html">Affiliate Program</a></li>
-                  <li><a href="contact.html">Lawyer Consulting</a></li>
-                  <li><a href="#">Sorteo Locemses</a></li>
-                  <li><a href="privacy.html">Privacey Policy</a></li>
-                  <li><a href="#">Term & Condition</a></li>
-                </ul>
+            <div class="col-lg-4">
+              <div class="row gy-5">
+                <div class="col-md-6 col-sm-6 d-flex justify-content-lg-center">
+                  <div class="footer-widget">
+                    <h5 class="widget-title">Quick Links</h5>
+                    <ul class="widget-links">
+                      <li><a href="login.html">My Account</a></li>
+                      <li><a href="about.html">Affiliate Program</a></li>
+                      <li><a href="contact.html">Lawyer Consulting</a></li>
+                      <li><a href="#">Sorteo Locemses</a></li>
+                      <li><a href="privacy.html">Privacey Policy</a></li>
+                      <li><a href="#">Term & Condition</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6 d-flex justify-content-lg-center">
+                  <div class="footer-widget">
+                    <h5 class="widget-title">Help Center</h5>
+                    <ul class="widget-links">
+                      <li><a href="contact.html">Help Center</a></li>
+                      <li><a href="faq.html">FAQ</a></li>
+                      <li><a href="#">Borrow</a></li>
+                      <li><a href="contact.html">License Agreement</a></li>
+                      <li><a href="auction.html">Sell your Product</a></li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col-lg-2 col-md-6">
-              <div class="footer-widget">
-                <h5 class="widget-title">Help Center</h5>
-                <ul class="widget-links">
-                  <li><a href="contact.html">Help Center</a></li>
-                  <li><a href="faq.html">FAQ</a></li>
-                  <li><a href="#">Borrow</a></li>
-                  <li><a href="contact.html">License Agreement</a></li>
-                  <li><a href="#">Sell your Product</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="footer-widget text-start">
+            <div class="col-lg-4">
+              <div class="footer-widget text-center text-lg-start">
                 <div class="footer-disc">
-                  <a href="index.html"><img src="assets/images/logo.png" alt></a>
+                  <a href="index.html"><img src="assets/images/AutoBid logo.png"  alt></a>
                   <p>Duis luctus risus ut velit aliquam, sed fringilla odio gravida. In vitae sagittis neque, eget vestibulum enim. Pellentesque ante odio.</p>
                 </div>
-                <ul class="footer-social-links justify-content-start">
-                  <li><a href="https://www.facebook.com"><i class="bx bxl-facebook"></i></a></li>
-                  <li><a href="https://twitter.com"><i class="bx bxl-twitter"></i></a></li>
-                  <li><a href="https://www.pinterest.com"><i class="bx bxl-pinterest"></i></a></li>
-                  <li><a href="https://www.instagram.com"><i class="bx bxl-instagram"></i></a></li>
-                </ul>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="copyright row align-items-center">
-          <div class="col-lg-6 col-md-6 order-1 order-md-0 text-center text-md-start mt-3 mt-md-0">
-            <p>Copyright 2022 <a href="#">Bidgen</a> | Design By <a href="https://www.egenslab.com">Egens Theme</a></p>
-          </div>
-          <div class="col-lg-6 col-md-6 order-0 order-md-1">
-            <div class="acceptable-cards float-lg-end text-center text-md-start">
-              <img src="assets/images/icon/payment-cards.png" alt class="img-fluid">
             </div>
           </div>
         </div>
