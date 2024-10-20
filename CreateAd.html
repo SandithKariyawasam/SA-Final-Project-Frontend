@@ -135,213 +135,171 @@
         </ul>
       </div>
       <div class="main_content My-Profile">
-        <div class="header">Create New Ad<button class="button-right">Create</button>
-        </div>
-        <div class="row justify-content-center mb-30-none">
-          <div class="col-12">
-            <div class="dash-pro-item mb-30 dashboard-widget">
-              <div class="header">
-                <h4 class="title">Vehicle Details</h4>
+        <form id="ad-form" action="" method="post">
+          <div class="header">Create New Ad<button type="submit" class="button-right">Create</button></div>
+          <div class="row justify-content-center mb-30-none">
+              <div class="col-12">
+                  <div class="dash-pro-item mb-30 dashboard-widget">
+                      <div class="header">
+                          <h4 class="title">Vehicle Details</h4>
+                      </div>
+                      <ul class="dash-pro-body">
+                          <li>
+                              <div class="info-name">Name</div>
+                              <div class="info-value">
+                                  <div class="form">
+                                      <input class="input" id="vehicle-name" placeholder="Input Vehicle Name" required="" type="text">
+                                  </div>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="info-name">Description</div>
+                              <div class="info-value">
+                                  <div class="form">
+                                      <input class="input" id="description" placeholder="Input Description" required="" type="text">
+                                  </div>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
               </div>
-              <form action="" method="post">
-              <ul class="dash-pro-body">
-                <li>
-                  <div class="info-name">Make</div>
-                  <div class="info-value">
-                    <div class="form">
-                      <input class="input" placeholder="Input Make" required="" type="text">
-                      <span class="input-border"></span>
-                    </div>
+              <div class="col-12">
+                  <div class="dash-pro-item mb-30 dashboard-widget">
+                      <div class="header">
+                          <h4 class="title">Ad Details</h4>
+                      </div>
+                      <ul class="dash-pro-body">
+                          <li>
+                              <div class="info-name">Start Date and Time</div>
+                              <div class="info-value">
+                                  <div class="form">
+                                      <input class="input" id="start-date" required="" type="datetime-local">
+                                  </div>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="info-name">End Date and Time</div>
+                              <div class="info-value">
+                                  <div class="form">
+                                      <input class="input" id="end-date" required="" type="datetime-local">
+                                  </div>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="info-name">Starting Price</div>
+                              <div class="info-value">
+                                  <div class="form">
+                                      <input class="input" id="starting-price" placeholder="Input Price" required="" type="number" step="0.01">
+                                  </div>
+                              </div>
+                          </li>
+                      </ul>
                   </div>
-                </li>
-                <li>
-                  <div class="info-name">Model</div>
-                  <div class="info-value">
-                    <div class="form">
-                      <input class="input" placeholder="Input Model" required="" type="text">
-                      <span class="input-border"></span>
-                    </div>
+              </div>
+              <div class="col-12">
+                  <div class="dash-pro-item mb-30 dashboard-widget">
+                      <div class="header">
+                          <h4 class="title">Upload Images</h4>
+                      </div>
+                      <ul class="dash-pro-body">
+                          <li>
+                              <label for="file" class="labelFile">
+                                  <span>
+                                      <p>Click to select a file!</p>
+                                  </span>
+                              </label>
+                              <input class="input-img" id="file" type="file" required />
+                          </li>
+                      </ul>
                   </div>
-                </li>
-                <li>
-                  <div class="info-name">Color</div>
-                  <div class="info-value">
-                    <div class="form">
-                      <input class="input" placeholder="Input Color" required="" type="text">
-                      <span class="input-border"></span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="info-name">Transmission</div>
-                  <div class="info-value">
-                    <div class="form">
-                      <input class="input" placeholder="Input Transmission" required="" type="text">
-                      <span class="input-border"></span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="info-name">Condition</div>
-                  <div class="info-value">
-                    <div class="form">
-                      <input class="input" placeholder="Input Condition" required="" type="text">
-                      <span class="input-border"></span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="info-name">Year</div>
-                  <div class="info-value">
-                    <div class="form">
-                      <input class="input" placeholder="Input Year" required="" type="text">
-                      <span class="input-border"></span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="info-name">Mileage</div>
-                  <div class="info-value">
-                    <div class="form">
-                      <input class="input" placeholder="Input Mileage" required="" type="text">
-                      <span class="input-border"></span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="info-name">Fuel Type</div>
-                  <div class="info-value">
-                    <div class="form">
-                      <input class="input" placeholder="Input Fuel Type" required="" type="text">
-                      <span class="input-border"></span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="info-name">Engine Size</div>
-                  <div class="info-value">
-                    <div class="form">
-                      <input class="input" placeholder="Input Engine Size" required="" type="text">
-                      <span class="input-border"></span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="info-name">Doors</div>
-                  <div class="info-value">
-                    <div class="form">
-                      <input class="input" placeholder="How Many Doors have?" required="" type="text">
-                      <span class="input-border"></span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="info-name">VIN</div>
-                  <div class="info-value">
-                    <div class="form">
-                      <input class="input" placeholder="Input VIN" required="" type="text">
-                      <span class="input-border"></span>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
+              </div>
           </div>
-          <div class="col-12"></div>
-            <div class="dash-pro-item mb-30 dashboard-widget">
-              <div class="header">
-                <h4 class="title">Ad Details</h4>
-              </div>
-              <form action="" method="post">
-              <ul class="dash-pro-body">
-                <li>
-                  <div class="info-name">Start Date</div>
-                  <div class="info-value">
-                    <div class="form">
-                      <input class="input" placeholder="Input Make" required="" type="text">
-                      <span class="input-border"></span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="info-name">End Date</div>
-                  <div class="info-value">
-                    <div class="form">
-                      <input class="input" placeholder="Input Model" required="" type="text">
-                      <span class="input-border"></span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="info-name">Starting Price</div>
-                  <div class="info-value">
-                    <div class="form">
-                      <input class="input" placeholder="Input Color" required="" type="text">
-                      <span class="input-border"></span>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            
-          </div>
-          <div class="col-12">
-            <div class="dash-pro-item mb-30 dashboard-widget">
-              <div class="header">
-                <h4 class="title">Upload Images</h4>
-              </div>
-              <ul class="dash-pro-body">
-                <li>
-                  <label for="file" class="labelFile"><span
-                      ><svg
-                        xml:space="preserve"
-                        viewBox="0 0 184.69 184.69"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xmlns="http://www.w3.org/2000/svg"
-                        id="Capa_1"
-                        version="1.1"
-                        width="60px"
-                        height="60px"
-                      >
-                        <g>
-                          <g>
-                            <g>
-                              <path
-                                d="M149.968,50.186c-8.017-14.308-23.796-22.515-40.717-19.813
-                                  C102.609,16.43,88.713,7.576,73.087,7.576c-22.117,0-40.112,17.994-40.112,40.115c0,0.913,0.036,1.854,0.118,2.834
-                                  C14.004,54.875,0,72.11,0,91.959c0,23.456,19.082,42.535,42.538,42.535h33.623v-7.025H42.538
-                                  c-19.583,0-35.509-15.929-35.509-35.509c0-17.526,13.084-32.621,30.442-35.105c0.931-0.132,1.768-0.633,2.326-1.392
-                                  c0.555-0.755,0.795-1.704,0.644-2.63c-0.297-1.904-0.447-3.582-0.447-5.139c0-18.249,14.852-33.094,33.094-33.094
-                                  c13.703,0,25.789,8.26,30.803,21.04c0.63,1.621,2.351,2.534,4.058,2.14c15.425-3.568,29.919,3.883,36.604,17.168
-                                  c0.508,1.027,1.503,1.736,2.641,1.897c17.368,2.473,30.481,17.569,30.481,35.112c0,19.58-15.937,35.509-35.52,35.509H97.391
-                                  v7.025h44.761c23.459,0,42.538-19.079,42.538-42.535C184.69,71.545,169.884,53.901,149.968,50.186z"
-                                style="fill:#010002;"
-                              ></path>
-                            </g>
-                            <g>
-                              <path
-                                d="M108.586,90.201c1.406-1.403,1.406-3.672,0-5.075L88.541,65.078
-                                  c-0.701-0.698-1.614-1.045-2.534-1.045l-0.064,0.011c-0.018,0-0.036-0.011-0.054-0.011c-0.931,0-1.85,0.361-2.534,1.045
-                                  L63.31,85.127c-1.403,1.403-1.403,3.672,0,5.075c1.403,1.406,3.672,1.406,5.075,0L82.296,76.29v97.227
-                                  c0,1.99,1.603,3.597,3.593,3.597c1.979,0,3.59-1.607,3.59-3.597V76.165l14.033,14.036
-                                  C104.91,91.608,107.183,91.608,108.586,90.201z"
-                                style="fill:#010002;"
-                              ></path>
-                            </g>
-                          </g>
-                        </g></svg></span>
-                    <p>Click to select a file!</p>
-                  </label>
-                  <input class="input-img" name="text" id="file" type="file" />
-                </li>
-              </ul>
-              
-            </form>
+      </form> 
             </div>
           </div>
         </div>
       </div>
         <br>
+       <script>
+        document.getElementById('ad-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Get form data
+    const vehicleName = document.getElementById('vehicle-name').value;
+    const description = document.getElementById('description').value;
+    const startDate = document.getElementById('start-date').value;
+    const endDate = document.getElementById('end-date').value;
+    const startingPrice = parseFloat(document.getElementById('starting-price').value);
+    const imageFile = document.getElementById('file').files[0];
+
+    // Get the access token from localStorage
+    const accessToken = localStorage.getItem('jwtToken');
+
+    // Upload the image first
+    const formData = new FormData();
+    formData.append('file', imageFile);
+
+    fetch('https://localhost:7047/api/Image', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${accessToken}`
+        },
+        body: formData
+    })
+    .then(response => {
+        // Check the response's content type
+        const contentType = response.headers.get('Content-Type');
+        
+        // Parse the response based on its content type
+        if (contentType && contentType.includes('application/json')) {
+            return response.json(); // Parse as JSON
+        } else {
+            return response.text(); // Parse as text (for URL response)
+        }
+    })
+    .then(data => {
+        let imageUrl;
+        if (typeof data === 'string') {
+            // If the data is a string, assume it's the image URL
+            imageUrl = data;
+        } else if (data && data.imageUrl) {
+            // If data has an imageUrl property, use that
+            imageUrl = data.imageUrl;
+        } else {
+            throw new Error('Image upload response is not valid');
+        }
+
+        const auctionData = {
+            title: vehicleName,
+            description: description,
+            auctionImage: imageUrl, // Use the image URL returned from the image upload
+            sellerId: 0, // Assuming sellerId will be set appropriately
+            startTime: new Date(startDate).toISOString(),
+            endTime: new Date(endDate).toISOString(),
+            startingBid: startingPrice
+        };
+
+        // Now, create the auction
+        return fetch('https://localhost:7047/api/Auction/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`
+            },
+            body: JSON.stringify(auctionData)
+        });
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Auction created successfully:', data);
+        // You can add any success handling here (e.g., redirect or display a message)
+    })
+    .catch(error => console.error('Error:', error));
+    window.location.href = 'DashBoard.html';
+});
+
+       </script>
+      
         <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
         <script src="assets/js/jquery-3.6.0.min.js"></script>
         <script src="assets/js/bootstrap.bundle.min.js"></script>

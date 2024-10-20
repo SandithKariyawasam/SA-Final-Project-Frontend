@@ -82,16 +82,17 @@
                   <ul class="d-flex">
                     <li class="search-btn d-block d-xxl-none"><i class="bi bi-search"></i></li>
                     <li class="header-account me-0 position-relative">
-                      <a id="dropdownMenu2" data-bs-toggle="dropdown">
-                        <i class="bi bi-person-fill"></i>
-                      </a>
-                      <ul class="dropdown-menu account-list" aria-labelledby="dropdownMenu2">
-                        <li class="dropdown-item"><a href="MyAccount.html">My account</a></li>
-                        <li class="dropdown-item"><a href="login.html">Login</a></li>
-                        <li class="dropdown-item"><a href="register.html">Register</a></li>
-                      </ul>
+                        <a id="dropdownMenu2" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-fill"></i>
+                        </a>
+                        <ul class="dropdown-menu account-list" aria-labelledby="dropdownMenu2">
+                            <li class="dropdown-item d-none" id="account-link"><a href="MyAccount.html">My account</a></li>
+                            <li class="dropdown-item" id="login-link"><a href="login.html">Login</a></li>
+                            <li class="dropdown-item" id="register-link"><a href="register.html">Register</a></li>
+                        </ul>
                     </li>
-                  </ul>
+                </ul>
+                
                 </div>
               </div>
             </div>
@@ -131,27 +132,18 @@
           <div class="col-lg-6">
             <div class="right-form-area">
               <h3>Register Your Account</h3>
-              <form class="w-100">
+              <form class="w-100" id="login-form">
                 <div class="form-inner">
-                  <label>Full Name*</label>
-                  <input type="text" placeholder="Full Name">
+                    <label>Email*</label>
+                    <input type="email" id="login-email" name="email" placeholder="User Name" required>
                 </div>
                 <div class="form-inner">
-                  <label>Email *</label>
-                  <input type="text" placeholder="Your email">
+                    <label>Password *</label>
+                    <input type="password" id="login-pass" name="password" placeholder="Password" required />
+                    <i class="bi bi-eye-slash" id="togglePassword"></i>
                 </div>
-                <div class="form-inner">
-                  <label>Password *</label>
-                  <input type="password" name="password" id="password" placeholder="Password" />
-                  <i class="bi bi-eye-slash" id="togglePassword"></i>
-                </div>
-                <div class="form-inner">
-                  <label>Confirm Password *</label>
-                  <input type="password" name="password" id="password2" placeholder="Confirm Password" />
-                  <i class="bi bi-eye-slash" id="togglePassword2"></i>
-                </div>
-                <button class="account-btn">CREATE AN ACCOUNT</button>
-              </form>
+                <button class="account-btn" type="submit">CREATE AN ACCOUNT</button>
+            </form>
             </div>
           </div>
         </div>
@@ -234,6 +226,55 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      let isRegistered = false; // Track registration status
+  
+      document.getElementById('login-form').addEventListener('submit', async function (e) {
+          e.preventDefault();
+          const response = await fetch('https://localhost:7047/register', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                  email: document.getElementById('login-email').value,
+                  password: document.getElementById('login-pass').value,
+              })
+          });
+  
+          if (response.status == 200) {
+              console.log('User registered successfully');
+              isRegistered = true; // Update registration status
+              updateDropdownMenu(); // Update dropdown menu
+
+              // Redirect to Login.html
+              window.location.href = 'login.html';
+          } else {
+              const data = await response.json();
+              alert(data);
+          }
+      });
+  
+      function updateDropdownMenu() {
+          const accountLink = document.getElementById('account-link');
+          const loginLink = document.getElementById('login-link');
+          const registerLink = document.getElementById('register-link');
+  
+          if (isRegistered) {
+              accountLink.classList.remove('d-none'); // Show "My Account"
+              loginLink.parentElement.classList.add('d-none'); // Hide "Login"
+              registerLink.parentElement.classList.add('d-none'); // Hide "Register"
+          } else {
+              accountLink.classList.add('d-none'); // Hide "My Account"
+              loginLink.parentElement.classList.remove('d-none'); // Show "Login"
+              registerLink.parentElement.classList.remove('d-none'); // Show "Register"
+          }
+      }
+  
+      // Initialize the dropdown menu on page load
+      updateDropdownMenu();
+  </script>
+  
+  
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>

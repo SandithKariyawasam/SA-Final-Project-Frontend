@@ -48,7 +48,6 @@
             <div class="col-xl-5">
               <nav class="main-nav">
                 <div class="inner-logo d-xl-none text-center mt-4">
-                  <a href="#"><img src="assets/images/logo-dark.png" alt></a>
                 </div>
                 <ul>
                   <li>
@@ -82,16 +81,17 @@
                   <ul class="d-flex">
                     <li class="search-btn d-block d-xxl-none"><i class="bi bi-search"></i></li>
                     <li class="header-account me-0 position-relative">
-                      <a id="dropdownMenu2" data-bs-toggle="dropdown">
-                        <i class="bi bi-person-fill"></i>
-                      </a>
-                      <ul class="dropdown-menu account-list" aria-labelledby="dropdownMenu2">
-                        <li class="dropdown-item"><a href="MyAccount.html">My account</a></li>
-                        <li class="dropdown-item"><a href="login.html">Login</a></li>
-                        <li class="dropdown-item"><a href="register.html">Register</a></li>
-                      </ul>
+                        <a id="dropdownMenu2" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-fill"></i>
+                        </a>
+                        <ul class="dropdown-menu account-list" aria-labelledby="dropdownMenu2">
+                            <li class="dropdown-item d-none" id="account-link"><a href="MyAccount.html">My account</a></li>
+                            <li class="dropdown-item" id="login-link"><a href="login.html">Login</a></li>
+                            <li class="dropdown-item" id="register-link"><a href="register.html">Register</a></li>
+                        </ul>
                     </li>
-                  </ul>
+                </ul>
+                
                 </div>
               </div>
             </div>
@@ -131,18 +131,21 @@
           <div class="col-lg-6">
             <div class="right-form-area">
               <h3>Login Your Account</h3>
-              <form class="w-100">
+              <form class="w-100" id="login-form">
                 <div class="form-inner">
-                  <label>User Name*</label>
-                  <input type="text" placeholder="User Name">
+                    <label>Email*</label>
+                    <input type="email" id="login-email" name="email" placeholder="User Name" required>
                 </div>
                 <div class="form-inner">
-                  <label>Password *</label>
-                  <input type="password" name="password" id="password" placeholder="Password" />
-                  <i class="bi bi-eye-slash" id="togglePassword"></i>
+                    <label>Password *</label>
+                    <input type="password" id="login-pass" name="password" placeholder="Password" required />
+                    <i class="bi bi-eye-slash" id="togglePassword"></i>
                 </div>
-                <button class="account-btn">LOGIN ACCOUNT</button>
-              </form>
+                <button class="account-btn" type="submit">LOGIN ACCOUNT</button>
+            </form>
+            
+            
+            
             </div>
           </div>
         </div>
@@ -225,6 +228,76 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      // Handle login form submission
+      document.getElementById('login-form').addEventListener('submit', function(event) {
+          event.preventDefault();
+    
+          const email = document.getElementById('login-email').value;
+          const password = document.getElementById('login-pass').value;
+    
+          // Send login request to the API
+          fetch('https://localhost:7047/login', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ email, password })
+          })
+          .then(response => response.json().then(data => ({ status: response.status, body: data })))
+          .then(({ status, body }) => {
+              console.log('Response status:', status);
+              console.log('Response body:', body);
+    
+              // Check for successful status and accessToken
+              if (status === 200 && body.accessToken) {
+                  // Store the access token in localStorage for use in authenticated requests
+                  localStorage.setItem('jwtToken', body.accessToken);
+                  console.log('Logged in successfully!');
+  
+                  // Update the account link visibility
+                  updateAccountLinks(true);
+  
+                  // Redirect to MyAccount.html
+                  window.location.href = 'MyAccount.html';
+              } else {
+                  console.error('Login failed: No accessToken found in response or status not OK', body);
+              }
+          })
+          .catch(error => console.error('Error during login:', error));
+      });
+  
+      // Function to update the visibility of account links
+      function updateAccountLinks(isLoggedIn) {
+          const accountLink = document.getElementById('account-link');
+          const loginLink = document.getElementById('login-link');
+          const registerLink = document.getElementById('register-link');
+  
+          if (isLoggedIn) {
+              // User is logged in, show "My Account" and hide "Login" and "Register"
+              accountLink.classList.remove('d-none'); // Show My Account
+              loginLink.classList.add('d-none'); // Hide Login
+              registerLink.classList.add('d-none'); // Hide Register
+          } else {
+              // User is not logged in, show "Login" and "Register" and hide "My Account"
+              accountLink.classList.add('d-none'); // Hide My Account
+              loginLink.classList.remove('d-none'); // Show Login
+              registerLink.classList.remove('d-none'); // Show Register
+          }
+      }
+  
+      // Dynamic display of account links based on login status
+      document.addEventListener('DOMContentLoaded', () => {
+          const token = localStorage.getItem('jwtToken');
+          
+          // Update account link visibility based on presence of token
+          updateAccountLinks(!!token); // Pass true if token exists, false otherwise
+      });
+  </script>
+  
+  
+  
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
