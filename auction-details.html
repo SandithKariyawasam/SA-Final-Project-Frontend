@@ -117,7 +117,7 @@
             <div class="item-bid-timer">
               <div class="auction-bid">
                 <p>Current Bid</p>
-                <h5>LKR <span id="auction-starting-bid"></span></h5> 
+                <h5>LKR <span id="auction-current-bid"></span></h5> 
             </div>
             
               <div class="auction-timer">
@@ -151,31 +151,13 @@
               </div>
               <div class="single-widget">
                 <h5 class="wdget-title wdget-title2">Bid Now</h5>
-                <form class="widget-form">
+                <form class="widget-form" id="bid-form">
                   <div class="form-group d-flex justify-content-center align-items-center">
-                      <input type="text" placeholder="$00.00">
-                      <button class="widget-btn">Place Bid</button>
+                      <input type="number" id="bid-amount" placeholder="$00.00" required step="0.01">
+                      <button type="submit" class="widget-btn">Place Bid</button>
                   </div>
-              </form>
+              </form>              
               
-              </div>
-              <div class="single-widget">
-                <h5 class="wdget-title">Bidding History</h5>
-                <div class="bidding-item gap-sm-4 gap-2">
-                  <div class="bidding-content">
-                    <h6>Robart FOX</h6>
-                  </div>
-                </div>
-                <div class="bidding-item gap-sm-4 gap-2">
-                  <div class="bidding-content">
-                    <h6>Leslie Alexander</h6>
-                  </div>
-                </div>
-                <div class="bidding-item gap-sm-4 gap-2">
-                  <div class="bidding-content">
-                    <h6>Jane Cooper</h6>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -262,7 +244,6 @@
     </footer>
 
    
-    
     <script>
       document.addEventListener('DOMContentLoaded', function () {
           // Function to get auctionId from URL
@@ -275,7 +256,6 @@
           function fetchAuctionDetails(auctionId) {
               const accessToken = localStorage.getItem('jwtToken'); // Get the access token
   
-              // Commented out the fetch URL
               fetch(`https://localhost:7047/api/Auction/${auctionId}`, {
                   method: 'GET',
                   headers: {
@@ -299,11 +279,73 @@
                   document.getElementById('auction-end-time').innerText = new Date(data.endTime).toLocaleString(); // Display in locale format
                   makeTimer(endTime); // Call timer function with end time
   
-                  document.getElementById('auction-starting-bid').innerText = data.startingBid.toFixed(2); // Format to 2 decimal places
+                  // Fetch the current bid amount after getting auction details
+                  fetchCurrentBid(data.vehicleId);
               })
               .catch(error => {
                   console.error('Error fetching auction details:', error);
                   alert('Could not fetch auction details. Please try again later.');
+              });
+          }
+  
+          // Function to fetch current bid amount
+          function fetchCurrentBid(vehicleId) {
+              const accessToken = localStorage.getItem('jwtToken'); // Get the access token
+  
+              fetch(`https://localhost:7047/api/Bid`, {
+                  method: 'GET',
+                  headers: {
+                      'Authorization': `Bearer ${accessToken}`
+                  }
+              })
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                  }
+                  return response.json();
+              })
+              .then(data => {
+                  // Find the current bid for the specific vehicleId
+                  const currentBid = data.find(bid => bid.vehiucleId === vehicleId);
+                  document.getElementById('auction-current-bid').innerText = currentBid ? currentBid.BidAmount : '0.00'; // Display current bid amount
+              })
+              .catch(error => {
+                  console.error('Error fetching current bid:', error);
+              });
+          }
+  
+          // Function to create a new bid
+          function createBid(vehicleId, bidAmount) {
+              const accessToken = localStorage.getItem('jwtToken'); // Get the access token
+              const bidData = {
+                  vehiucleId: vehicleId,
+                  BidAmount: bidAmount
+              };
+  
+              fetch(`https://localhost:7047/api/Bid/create`, {
+                  method: 'POST',
+                  headers: {
+                      'Authorization': `Bearer ${accessToken}`,
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(bidData)
+              })
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                  }
+                  return response.json();
+              })
+              .then(data => {
+                  // After creating a bid, fetch the updated current bid
+                  fetchCurrentBid(vehicleId);
+                  
+                  // Refresh the page after placing the bid
+                  window.location.reload(); // Reload the page to reflect changes
+              })
+              .catch(error => {
+                  console.error('Error creating bid:', error);
+                  alert('Could not place bid. Please try again later.');
               });
           }
   
@@ -336,6 +378,21 @@
               updateTimer(); // Initial call to display the timer immediately
           }
   
+          // Handle the form submission
+          const bidForm = document.getElementById('bid-form');
+          bidForm.addEventListener('submit', function (event) {
+              event.preventDefault(); // Prevent form submission
+              const bidAmount = parseFloat(document.getElementById('bid-amount').value);
+              const auctionId = getAuctionIdFromUrl();
+  
+              if (auctionId && !isNaN(bidAmount) && bidAmount > 0) {
+                  const vehicleId = auctionId; // Assign auctionId to vehicleId
+                  createBid(vehicleId, bidAmount); // Create a new bid
+              } else {
+                  alert('Please enter a valid bid amount.');
+              }
+          });
+  
           // Get auctionId from the URL and fetch auction details
           const auctionId = getAuctionIdFromUrl();
           if (auctionId) {
@@ -346,11 +403,8 @@
           }
       });
   </script>
-  
-  
     
   
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>

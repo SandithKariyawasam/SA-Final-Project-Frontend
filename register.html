@@ -243,8 +243,7 @@
   
           if (response.status == 200) {
               console.log('User registered successfully');
-              isRegistered = true; // Update registration status
-              updateDropdownMenu(); // Update dropdown menu
+              isRegistered = true; // Update dropdown menu
 
               // Redirect to Login.html
               window.location.href = 'login.html';
@@ -254,24 +253,8 @@
           }
       });
   
-      function updateDropdownMenu() {
-          const accountLink = document.getElementById('account-link');
-          const loginLink = document.getElementById('login-link');
-          const registerLink = document.getElementById('register-link');
+      
   
-          if (isRegistered) {
-              accountLink.classList.remove('d-none'); // Show "My Account"
-              loginLink.parentElement.classList.add('d-none'); // Hide "Login"
-              registerLink.parentElement.classList.add('d-none'); // Hide "Register"
-          } else {
-              accountLink.classList.add('d-none'); // Hide "My Account"
-              loginLink.parentElement.classList.remove('d-none'); // Show "Login"
-              registerLink.parentElement.classList.remove('d-none'); // Show "Register"
-          }
-      }
-  
-      // Initialize the dropdown menu on page load
-      updateDropdownMenu();
   </script>
   
   
