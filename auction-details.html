@@ -117,100 +117,63 @@
             <div class="item-bid-timer">
               <div class="auction-bid">
                 <p>Current Bid</p>
-                <h5>$20,0379.00</h5>
-              </div>
+                <h5>LKR <span id="auction-bidamount"></span></h5> 
+            </div>
+            
               <div class="auction-timer">
                 <div class="countdown" id="timer4">
-                  <h6><span id="days4"></span>D :<span id="hours4"></span>H : <span id="minutes4"></span>M : <span id="seconds4"></span>S</h6>
-                </div>
+                  <h6><div id="timer"></div></h6></div>
               </div>
             </div>
             <div class="tab-content">
               <div class="tab-pane big-image fade show active" id="gallery-img1">
-                <span class="eg-badge">ID 0195638</span>
-                <img src="assets/images/vehicle/Audi A4 S Line/a.png" alt>
+                
+                
+                <img id="auction-image" src="" alt="Auction Image">
               </div>
             </div>
             <ul class="nav small-image-list d-flex justify-content-md-between justify-content-center gap-md-4 gap-2">
             </ul>
             <div class="item-describe-area">
-              <ul class="nav nav-pills d-flex justify-content-center gap-sm-4 gap-1" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link active describe-btn" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Description</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link describe-btn" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Location</button>
-                </li>
-              </ul>
-              <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                  <div class="describe-content">
-                    <p class="mb-15">The 2017 Audi A4 S Line is a luxury sedan that offers a blend of performance, style, and advanced technology. Powered by a 2.0-liter turbocharged engine, it delivers around 252 horsepower with smooth acceleration.</p>
-                    <p> The S Line package adds sporty design elements like a more aggressive front bumper, side skirts, and 18-inch alloy wheels. Inside, it features premium materials, a user-friendly infotainment system, and spacious seating. With its precise handling, Quattro all-wheel drive option, and modern driver-assistance features, the Audi A4 S Line provides a refined and dynamic driving experience.</p>
-                  </div>
-                </div>
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                  <div class="map-area">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.5054332309905!2d79.95283667570551!3d6.707998220990409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae248e6541001d7%3A0xa12eacc092b592ba!2sPX44%2BW4V%20Alubomulla%20Maha%20Vidyalaya%2C%20Panadura%2012524!5e0!3m2!1sen!2slk!4v1726935995372!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>  
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
           <div class="col-lg-6">
             <div class="widget-right-area">
-              <h4>Audi A4 2017 S line</h4>
-              <p class="paragraph">The 2017 Audi A4 S Line is a sporty luxury sedan with a 2.0-liter turbo engine, sleek design, and premium interior. It offers sharp handling, advanced tech, and an optional Quattro all-wheel drive for a dynamic driving experience.</p>
+              <h2><span id="auction-title"></span></h2>
+              <p class="paragraph" ></p>
               <div class="single-widget">
                 <h5 class="wdget-title">Product Overview</h5>
                 <ul class="widget-list">
-                  <li><span>Make :</span><span>Audi</span></li>
-                  <li><span>Model :</span><span>A4</span></li>
-                  <li><span>Color :</span><span>White</span></li>
-                  <li><span>Transmission :</span><span>Automatic</span></li>
-                  <li><span>Condition :</span><span>Used</span></li>
-                  <li><span>Year :</span><span>2017</span></li>
-                  <li><span>Mileage :</span><span>59,000km</span></li>
-                  <li><span>Fuel Type :</span><span>Petrol</span></li>
-                  <li><span>Engine Size :</span><span>1,400cc</span></li>
-                  <li><span>Doors :</span><span>4-door</span></li>
-                  <li><span>VIN :</span><span>A4 2017 Sline</span></li>
+                  <li>EndTime:<span id="auction-end-time"></span></li>
+                  <li><span id="auction-description"></span></li>
+                  
                 </ul>
               </div>
               <div class="single-widget">
                 <h5 class="wdget-title wdget-title2">Bid Now</h5>
-                <p class="widget-subtitle">Bid Amount : Minimum Bid 20.00$</p>
                 <form class="widget-form">
                   <div class="form-group d-flex justify-content-center align-items-center">
-                    <input type="text" placeholder="$00.00">
-                    <button class="widget-btn">Place Bid</button>
+                      <input type="text" placeholder="$00.00">
+                      <button class="widget-btn">Place Bid</button>
                   </div>
-                </form>
+              </form>
+              
               </div>
               <div class="single-widget">
                 <h5 class="wdget-title">Bidding History</h5>
                 <div class="bidding-item gap-sm-4 gap-2">
-                  <div class="bidding-img">
-                    <img src="assets/images/buyer/bid-histo1.png" alt>
-                  </div>
                   <div class="bidding-content">
-                    <h6><a href="winner.html">Robart FOX</a></h6>
+                    <h6>Robart FOX</h6>
                   </div>
                 </div>
                 <div class="bidding-item gap-sm-4 gap-2">
-                  <div class="bidding-img">
-                    <img src="assets/images/buyer/bid-histo2.png" alt>
-                  </div>
                   <div class="bidding-content">
-                    <h6><a href="winner.html">Leslie Alexander</a></h6>
+                    <h6>Leslie Alexander</h6>
                   </div>
                 </div>
                 <div class="bidding-item gap-sm-4 gap-2">
-                  <div class="bidding-img">
-                    <img src="assets/images/buyer//bid-hidto3.png" alt>
-                  </div>
                   <div class="bidding-content">
-                    <h6><a href="winner.html">Jane Cooper</a></h6>
+                    <h6>Jane Cooper</h6>
                   </div>
                 </div>
               </div>
@@ -297,6 +260,180 @@
         </div>
       </div>
     </footer>
+
+   
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          // Function to get auctionId from URL (which is also the vehicleId)
+          function getAuctionIdFromUrl() {
+              const urlParams = new URLSearchParams(window.location.search);
+              return urlParams.get('auctionId'); // Get auctionId (which is also the vehicleId) from URL query string
+          }
+      
+          // Function to fetch auction details by ID
+          function fetchAuctionDetails(auctionId) {
+              const accessToken = localStorage.getItem('jwtToken'); // Get the access token
+      
+              fetch(`https://localhost:7047/api/Auction/${auctionId}`, {
+                  method: 'GET',
+                  headers: {
+                      'Authorization': `Bearer ${accessToken}`
+                  }
+              })
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                  }
+                  return response.json(); // Parse JSON response
+              })
+              .then(data => {
+                  // Populate HTML with auction details
+                  document.getElementById('auction-title').innerText = data.title;
+                  document.getElementById('auction-description').innerText = data.description;
+                  document.getElementById('auction-image').src = data.auctionImage;
+      
+                  // Set up timer using the end time from data
+                  const endTime = new Date(data.endTime).getTime(); // Convert to timestamp
+                  document.getElementById('auction-end-time').innerText = new Date(data.endTime).toLocaleString(); // Display in locale format
+                  makeTimer(endTime); // Call timer function with end time
+      
+                  document.getElementById('auction-starting-bid').innerText = data.startingBid.toFixed(2); // Format to 2 decimal places
+              })
+              .catch(error => {
+                  console.error('Error fetching auction details:', error);
+                  alert('Could not fetch auction details. Please try again later.');
+              });
+          }
+      
+          // Function to fetch the latest bid for the vehicle (same as auctionId)
+          function fetchLatestBid(vehicleId) {
+              const accessToken = localStorage.getItem('jwtToken'); // Get the access token
+      
+              fetch(`https://localhost:7047/api/Bid/${vehicleId}`, { // Assuming the API supports fetching the latest bid for a vehicle
+                  method: 'GET',
+                  headers: {
+                      'Authorization': `Bearer ${accessToken}`
+                  }
+              })
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                  }
+                  return response.json(); // Parse the JSON response
+              })
+              .then(data => {
+                  // Update the bid amount in the HTML
+                  const bidAmountElement = document.getElementById('auction-bidamount');
+                  if (data && data.bidAmount) {
+                      bidAmountElement.innerText = data.bidAmount.toFixed(2); // Update with the bid amount
+                  } else {
+                      bidAmountElement.innerText = 'No bids yet'; // If no bid is found
+                  }
+              })
+              .catch(error => {
+                  console.error('Error fetching latest bid:', error);
+                  alert('Could not fetch the latest bid. Please try again later.');
+              });
+          }
+      
+          // Function to handle bid form submission
+          function handleBidSubmission(event) {
+              event.preventDefault(); // Prevent default form submission behavior
+      
+              const bidAmountInput = document.querySelector('.widget-form input[type="text"]');
+              const bidAmount = parseFloat(bidAmountInput.value); // Get bid amount from the input field
+              const vehicleId = getAuctionIdFromUrl(); // Use auctionId as vehicleId
+      
+              if (isNaN(bidAmount) || !vehicleId) {
+                  alert('Please enter a valid bid amount and ensure the vehicle ID is present.');
+                  return;
+              }
+      
+              // Get the JWT token from localStorage (assuming it's stored there)
+              const accessToken = localStorage.getItem('jwtToken');
+      
+              // Create the bid object
+              const bidData = {
+                  BidAmount: bidAmount,
+                  vehiucleId: parseInt(vehicleId) // Use auctionId as vehicleId
+              };
+      
+              // Send the bid data to the API
+              fetch('https://localhost:7047/api/Bid/create', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                      'Authorization': `Bearer ${accessToken}`
+                  },
+                  body: JSON.stringify(bidData) // Send the bid data as JSON
+              })
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('Failed to place bid');
+                  }
+                  return response.json(); // Parse the response JSON
+              })
+              .then(data => {
+                  alert('Bid placed successfully!');
+                  // Update the bid amount after placing the bid
+                  fetchLatestBid(vehicleId);
+              })
+              .catch(error => {
+                  console.error('Error placing bid:', error);
+                  alert('Error placing bid. Please try again.');
+              });
+          }
+      
+          // Timer function
+          function makeTimer(endTime) {
+              const timerElement = document.getElementById('timer'); // Ensure you have an element with this ID to show the countdown
+      
+              function updateTimer() {
+                  const now = new Date().getTime(); // Current time
+                  const timeLeft = endTime - now; // Time left in milliseconds
+      
+                  // Calculate days, hours, minutes, seconds
+                  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+      
+                  // Update the timer element
+                  timerElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      
+                  // If the countdown is over, display a message
+                  if (timeLeft < 0) {
+                      clearInterval(timerInterval);
+                      timerElement.innerHTML = "Auction has ended"; // Change this as needed
+                  }
+              }
+      
+              // Update the timer every second
+              const timerInterval = setInterval(updateTimer, 1000);
+              updateTimer(); // Initial call to display the timer immediately
+          }
+      
+          // Get auctionId from the URL and use it for both auction and vehicle details
+          const auctionId = getAuctionIdFromUrl();
+      
+          if (auctionId) {
+              fetchAuctionDetails(auctionId);
+              fetchLatestBid(auctionId); // Use auctionId as vehicleId for the bid details
+          } else {
+              console.error('Auction ID not found in the URL');
+              alert('Auction ID not found.');
+          }
+      
+          // Add event listener to the bid form
+          const bidForm = document.querySelector('.widget-form');
+          if (bidForm) {
+              bidForm.addEventListener('submit', handleBidSubmission);
+          }
+      });
+      </script>
+      
+    
+  
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>

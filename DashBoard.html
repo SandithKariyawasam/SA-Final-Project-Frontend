@@ -144,80 +144,113 @@
               <div class="header">
                 <h4 class="title">My Ads</h4>
               </div>
-              <table>
-                <tr>
-                  <td>
-                    <div class="card-container">
-                      <div class="card">
-                        <img src="assets/images/vehicle/Audi A4 S Line/a.png">
-                        <div class="card-content">
-                          <h3>Audi A4 S Line</h3>
-                          <p>Current Bid: $3000</p>
-                          <a href="ManageAd.html" class="btn-1">Edit</a>
-                          <a href="" class="btn-2">Remove</a>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="card-container">
-                      <div class="card">
-                        <img src="assets/images/vehicle/BMW 318i Luxury Line/a.png">
-                        <div class="card-content">
-                          <h3>BMW 318i Luxury Line</h3>
-                          <p>Current Bid: $3000</p>
-                          <a href="ManageAd.html" class="btn-1">Edit</a>
-                          <a href="" class="btn-2">Remove</a>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="card-container">
-                      <div class="card">
-                        <img src="assets/images/vehicle/Jeep Wrangler Rubicon/a.png">
-                        <div class="card-content">
-                          <h3>Jeep Wrangler Rubicon</h3>
-                          <p>Current Bid: $3000</p>
-                          <a href="ManageAd.html" class="btn-1">Edit</a>
-                          <a href="" class="btn-2">Remove</a>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="card-container">
-                      <div class="card">
-                        <img src="assets/images/vehicle/Toyota Axio Diplomat/a.png">
-                        <div class="card-content">
-                          <h3>Toyota Axio Diplomat</h3>
-                          <p>Current Bid: $3000</p>
-                          <a href="ManageAd.html" class="btn-1">Edit</a>
-                          <a href="" class="btn-2">Remove</a>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                  </td>
-                  <td>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                  </td>
-                  <td>
-                  </td>
-                  <td>
-                  </td>
-                </tr>
-              </table>
+              <table id="auction-table">
+                <thead>
+                    <tr>
+                        <th>Auction</th>
+                    </tr>
+                </thead>
+                <tbody id="auction-table-body">
+                    <!-- Auction rows will be dynamically inserted here -->
+                </tbody>
+            </table>
+            
+            
+            
+                
             </div>
           </div>
         </div>
       </div>
+      
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Function to fetch auctions
+    function fetchAuctions() {
+        const accessToken = localStorage.getItem('jwtToken'); // Get the access token
+
+        fetch('https://localhost:7047/api/Auction', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${accessToken}`
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // Parse JSON response
+        })
+        .then(data => {
+            const tableBody = document.getElementById('auction-table-body'); // Get the table body element
+
+            // Clear existing content to prevent duplication
+            tableBody.innerHTML = '';
+
+            // Check if there are any auctions to display
+            if (data.length === 0) {
+                tableBody.innerHTML = '<tr><td>No auctions available.</td></tr>';
+                return; // Exit if no data
+            }
+
+            // Loop through the auction data and create table rows
+            for (let i = 0; i < data.length; i += 3) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <div class="card-container">
+                            <div class="card">
+                                <img src="${data[i].auctionImage}" alt="${data[i].title}">
+                                <div class="card-content">
+                                    <h3>${data[i].title}</h3>
+                                    <p>Current Bid: $${data[i].startingBid}</p>
+                                    <a href="ManageAd.html?id=${data[i].id}" class="btn-1">Edit</a>
+                                    <a href="#" class="btn-2" data-id="${data[i].id}">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    ${i + 1 < data.length ? `
+                    <td>
+                        <div class="card-container">
+                            <div class="card">
+                                <img src="${data[i + 1].auctionImage}" alt="${data[i + 1].title}">
+                                <div class="card-content">
+                                    <h3>${data[i + 1].title}</h3>
+                                    <p>Current Bid: $${data[i + 1].startingBid}</p>
+                                    <a href="ManageAd.html?id=${data[i + 1].id}" class="btn-1">Edit</a>
+                                    <a href="#" class="btn-2" data-id="${data[i + 1].id}">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>` : ''}
+                    ${i + 2 < data.length ? `
+                    <td>
+                        <div class="card-container">
+                            <div class="card">
+                                <img src="${data[i + 2].auctionImage}" alt="${data[i + 2].title}">
+                                <div class="card-content">
+                                    <h3>${data[i + 2].title}</h3>
+                                    <p>Current Bid: $${data[i + 2].startingBid}</p>
+                                    <a href="ManageAd.html?id=${data[i + 2].id}" class="btn-1">Edit</a>
+                                    <a href="#" class="btn-2" data-id="${data[i + 2].id}">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>` : ''}
+                `;
+                tableBody.appendChild(row); // Append the row to the table body
+            }
+        })
+        .catch(error => console.error('Error fetching auctions:', error));
+    }
+
+    // Call fetchAuctions on page load
+    fetchAuctions();
+});
+
+    </script>
+      
       <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
       <script src="assets/js/jquery-3.6.0.min.js"></script>
       <script src="assets/js/bootstrap.bundle.min.js"></script>
