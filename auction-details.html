@@ -117,7 +117,7 @@
             <div class="item-bid-timer">
               <div class="auction-bid">
                 <p>Current Bid</p>
-                <h5>LKR <span id="auction-bidamount"></span></h5> 
+                <h5>LKR <span id="auction-starting-bid"></span></h5> 
             </div>
             
               <div class="auction-timer">
@@ -262,18 +262,20 @@
     </footer>
 
    
+    
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-          // Function to get auctionId from URL (which is also the vehicleId)
+          // Function to get auctionId from URL
           function getAuctionIdFromUrl() {
               const urlParams = new URLSearchParams(window.location.search);
-              return urlParams.get('auctionId'); // Get auctionId (which is also the vehicleId) from URL query string
+              return urlParams.get('auctionId'); // Get auctionId from URL query string
           }
-      
+  
           // Function to fetch auction details by ID
           function fetchAuctionDetails(auctionId) {
               const accessToken = localStorage.getItem('jwtToken'); // Get the access token
-      
+  
+              // Commented out the fetch URL
               fetch(`https://localhost:7047/api/Auction/${auctionId}`, {
                   method: 'GET',
                   headers: {
@@ -291,12 +293,12 @@
                   document.getElementById('auction-title').innerText = data.title;
                   document.getElementById('auction-description').innerText = data.description;
                   document.getElementById('auction-image').src = data.auctionImage;
-      
+  
                   // Set up timer using the end time from data
                   const endTime = new Date(data.endTime).getTime(); // Convert to timestamp
                   document.getElementById('auction-end-time').innerText = new Date(data.endTime).toLocaleString(); // Display in locale format
                   makeTimer(endTime); // Call timer function with end time
-      
+  
                   document.getElementById('auction-starting-bid').innerText = data.startingBid.toFixed(2); // Format to 2 decimal places
               })
               .catch(error => {
@@ -304,134 +306,48 @@
                   alert('Could not fetch auction details. Please try again later.');
               });
           }
-      
-          // Function to fetch the latest bid for the vehicle (same as auctionId)
-          function fetchLatestBid(vehicleId) {
-              const accessToken = localStorage.getItem('jwtToken'); // Get the access token
-      
-              fetch(`https://localhost:7047/api/Bid/${vehicleId}`, { // Assuming the API supports fetching the latest bid for a vehicle
-                  method: 'GET',
-                  headers: {
-                      'Authorization': `Bearer ${accessToken}`
-                  }
-              })
-              .then(response => {
-                  if (!response.ok) {
-                      throw new Error('Network response was not ok');
-                  }
-                  return response.json(); // Parse the JSON response
-              })
-              .then(data => {
-                  // Update the bid amount in the HTML
-                  const bidAmountElement = document.getElementById('auction-bidamount');
-                  if (data && data.bidAmount) {
-                      bidAmountElement.innerText = data.bidAmount.toFixed(2); // Update with the bid amount
-                  } else {
-                      bidAmountElement.innerText = 'No bids yet'; // If no bid is found
-                  }
-              })
-              .catch(error => {
-                  console.error('Error fetching latest bid:', error);
-                  alert('Could not fetch the latest bid. Please try again later.');
-              });
-          }
-      
-          // Function to handle bid form submission
-          function handleBidSubmission(event) {
-              event.preventDefault(); // Prevent default form submission behavior
-      
-              const bidAmountInput = document.querySelector('.widget-form input[type="text"]');
-              const bidAmount = parseFloat(bidAmountInput.value); // Get bid amount from the input field
-              const vehicleId = getAuctionIdFromUrl(); // Use auctionId as vehicleId
-      
-              if (isNaN(bidAmount) || !vehicleId) {
-                  alert('Please enter a valid bid amount and ensure the vehicle ID is present.');
-                  return;
-              }
-      
-              // Get the JWT token from localStorage (assuming it's stored there)
-              const accessToken = localStorage.getItem('jwtToken');
-      
-              // Create the bid object
-              const bidData = {
-                  BidAmount: bidAmount,
-                  vehiucleId: parseInt(vehicleId) // Use auctionId as vehicleId
-              };
-      
-              // Send the bid data to the API
-              fetch('https://localhost:7047/api/Bid/create', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                      'Authorization': `Bearer ${accessToken}`
-                  },
-                  body: JSON.stringify(bidData) // Send the bid data as JSON
-              })
-              .then(response => {
-                  if (!response.ok) {
-                      throw new Error('Failed to place bid');
-                  }
-                  return response.json(); // Parse the response JSON
-              })
-              .then(data => {
-                  alert('Bid placed successfully!');
-                  // Update the bid amount after placing the bid
-                  fetchLatestBid(vehicleId);
-              })
-              .catch(error => {
-                  console.error('Error placing bid:', error);
-                  alert('Error placing bid. Please try again.');
-              });
-          }
-      
+  
           // Timer function
           function makeTimer(endTime) {
               const timerElement = document.getElementById('timer'); // Ensure you have an element with this ID to show the countdown
-      
+  
               function updateTimer() {
                   const now = new Date().getTime(); // Current time
                   const timeLeft = endTime - now; // Time left in milliseconds
-      
+  
                   // Calculate days, hours, minutes, seconds
                   const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
                   const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                   const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                   const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-      
+  
                   // Update the timer element
                   timerElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-      
+  
                   // If the countdown is over, display a message
                   if (timeLeft < 0) {
                       clearInterval(timerInterval);
                       timerElement.innerHTML = "Auction has ended"; // Change this as needed
                   }
               }
-      
+  
               // Update the timer every second
               const timerInterval = setInterval(updateTimer, 1000);
               updateTimer(); // Initial call to display the timer immediately
           }
-      
-          // Get auctionId from the URL and use it for both auction and vehicle details
+  
+          // Get auctionId from the URL and fetch auction details
           const auctionId = getAuctionIdFromUrl();
-      
           if (auctionId) {
               fetchAuctionDetails(auctionId);
-              fetchLatestBid(auctionId); // Use auctionId as vehicleId for the bid details
           } else {
               console.error('Auction ID not found in the URL');
               alert('Auction ID not found.');
           }
-      
-          // Add event listener to the bid form
-          const bidForm = document.querySelector('.widget-form');
-          if (bidForm) {
-              bidForm.addEventListener('submit', handleBidSubmission);
-          }
       });
-      </script>
-      
+  </script>
+  
+  
     
   
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
