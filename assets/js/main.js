@@ -97,28 +97,7 @@
     }());
   
     
-    setInterval(function() {
-      makeTimer();
-    }, 1000);
-    var heroSlider = new Swiper('.hero-slide-one', {
-      slidesPerView: 1,
-      speed: 1500,
-      spaceBetween: 0,
-      loop: true,
-      effect: 'fade',
-      centeredSlides: true,
-      roundLengths: true,
-      fadeEffect: {
-        crossFade: true
-      },
-      autoplay: {
-        delay: 7000
-      },
-      navigation: {
-        nextEl: '.hero-next1',
-        prevEl: '.hero-prev1',
-      },
-    });
+    
     var heroSliderTwo = new Swiper('.hero-slider-two', {
       slidesPerView: 1,
       speed: 1500,
