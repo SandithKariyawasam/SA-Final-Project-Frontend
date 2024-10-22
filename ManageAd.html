@@ -23,7 +23,7 @@
           <div class="row">
             <div class="col-xl-2 align-items-center d-xl-flex d-lg-block">
               <div class="nav-logo d-flex justify-content-between align-items-center">
-                <a href="index.html"><img src="assets/images/AutoBid logo.png" style="width: 60px;" alt="logo"></a>
+                <a href="index.html"><img src="assets/images/AutoBid logo.png"style="width: 60px;" alt="logo"></a>
                 <div class="d-flex align-items-center gap-4">
                   <ul class="nav-actions nav-inner-actions d-flex d-xl-none">
                     <li class="header-account me-0 position-relative">
@@ -32,18 +32,9 @@
                       </a>
                       <ul class="dropdown-menu account-list-mobile" aria-labelledby="dropdownMenu4">
                         <li class="dropdown-item"><a href="login.html">My account</a></li>
-                        <li class="dropdown-item"><a href="login.html">Login</a></li>
-                        <li class="dropdown-item mb-0"><a href="register.html">Register</a></li>
                       </ul>
                     </li>
                   </ul>
-                  <div class="mobile-menu d-flex ">
-                    <a href="javascript:void(0)" class="hamburger d-block d-xl-none">
-                      <span class="h-top"></span>
-                      <span class="h-middle"></span>
-                      <span class="h-bottom"></span>
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -56,21 +47,14 @@
                   <li>
                     <a href="index.html">Home</a>
                   </li>
-                  <li class="has-child-menu">
-                    <a href="javascript:void(0)">Auction</a>
-                    <i class="fl flaticon-plus">+</i>
-                    <ul class="sub-menu">
-                      <li><a href="auction.html">auction</a></li>
-                      <li><a href="auction-details.html">auction details</a></li>
-                    </ul>
+                  <li>
+                    <a href="auction.html">Auction</a>
                   </li>
                   <li class="has-child-menu">
                     <a href="javascript:void(0)">Pages</a>
                     <i class="fl flaticon-plus">+</i>
                     <ul class="sub-menu">
                       <li><a href="about.html">about</a></li>
-                      <li><a href="login.html">login</a></li>
-                      <li><a href="register.html">register</a></li>
                       <li><a href="privacy.html">Privacy Policy</a></li>
                     </ul>
                   </li>
@@ -79,11 +63,20 @@
               </nav>
             </div>
             <div class="col-xl-5 d-xl-flex align-items-center justify-content-end d-none">
-              <div class="user-img-nav">
-                <img src="assets/images/images/user.png" class="user-img" alt="">
-              </div>
-              <div class="user-img-nav" style="margin-left: 10px; color: aliceblue;">
-                <span>Sandith Kariyawasam</span>
+              <div class="nav-right d-flex align-items-center">
+                <div class="nav-actions d-flex align-items-center">
+                  <ul class="d-flex">
+                    <li class="search-btn d-block d-xxl-none"><i class="bi bi-search"></i></li>
+                    <li class="header-account me-0 position-relative">
+                      <a id="dropdownMenu2" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-fill"></i>
+                      </a>
+                      <ul class="dropdown-menu account-list" aria-labelledby="dropdownMenu2">
+                        <li class="dropdown-item"><a href="MyAccount.html">My account</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -95,134 +88,250 @@
     <div class="head">
       <div class="side-nav">
         <ul class="ul">
-          <a href="MyAccount.html" >
-            <li><img src="assets/images/images/members.png" alt="">
-              <p>My Profile</p>
+            <a href="MyAccount.html" >
+              <li><img src="assets/images/images/members.png" alt="">
+                <p>My Profile</p>
+              </li>
+            </a>
+            <a href="DashBoard.html" class="active">
+              <li><img src="assets/images/images/dashboard.png" alt="">
+                <p>DashBoard</p>
+              </li>
+            </a>
+            <a href="CreateAd.html">
+              <li><img src="assets/images/images/rewards.png" alt="">
+                <p>Create New AD</p>
+              </li>
+            </a>
+            <a href="Settings.html">
+              <li><img src="assets/images/images/setting.png" alt="">
+                <p>Settings</p>
+              </li>
+            </a>
+          </ul>
+          <ul class="ul">
+            <li id="logout-button" style="cursor: pointer; ">  <!-- Add cursor style for better UX -->
+                <img src="assets/images/images/setting.png" alt="">
+                <p>Log Out</p>
             </li>
-          </a>
-          <a href="DashBoard.html">
-            <li><img src="assets/images/images/dashboard.png" alt="">
-              <p>DashBoard</p>
-            </li>
-          </a>
-          <a href="Transactions.html">
-            <li><img src="assets/images/images/reports.png" alt="">
-              <p>Transactions</p>
-            </li>
-          </a>
-          <a href="CreateAd.html">
-            <li><img src="assets/images/images/rewards.png" alt="">
-              <p>Create New AD</p>
-            </li>
-          </a>
-          
-          <a href="#" class="active">
-            <li><img src="assets/images/images/reports.png" alt="">
-              <p>Manage Ads</p>
-            </li>
-          </a>
-          <a href="Settings.html">
-            <li><img src="assets/images/images/setting.png" alt="">
-              <p>Settings</p>
-            </li>
-          </a>
-        </ul>
-        <ul class="ul">
-          <li>
-            <img src="assets/images/images/setting.png" alt="">
-            <p>Log Out</p>
-          </li>
         </ul>
       </div>
       <div class="main_content My-Profile">
-        <div class="header">Manage Ads<button type="submit" class="button-right">Update</button>
+        <div class="header">
+            Manage Ads
+            <button type="submit" class="button-right" id="updateBtn">Update</button>
         </div>
         <div class="row justify-content-center mb-30-none">
-          <div class="col-12">
-            <div class="dash-pro-item mb-30 dashboard-widget">
-              <div class="header">
-                <h4 class="title">Vehicle Details</h4>
-              </div>
-              <form id="ad-form" action="" method="post">
-                
-                       
-                            <ul class="dash-pro-body">
-                                <li>
-                                    <div class="info-name">Name</div>
-                                    <div class="info-value">
-                                        <div class="form">
-                                            <input class="input" id="vehicle-name" placeholder="Input Vehicle Name" required="" type="text">
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="info-name">Description</div>
-                                    <div class="info-value">
-                                        <div class="form">
-                                            <input class="input" id="description" placeholder="Input Description" required="" type="text">
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+            <div class="col-12">
+                <div class="dash-pro-item mb-30 dashboard-widget">
+                    <div class="header">
+                        <h4 class="title">Vehicle Details</h4>
                     </div>
-                    <div class="col-12">
-                        <div class="dash-pro-item mb-30 dashboard-widget">
-                            <div class="header">
-                                <h4 class="title">Ad Details</h4>
-                            </div>
-                            <ul class="dash-pro-body">
-                                <li>
-                                    <div class="info-name">Start Date and Time</div>
-                                    <div class="info-value">
-                                        <div class="form">
-                                            <input class="input" id="start-date" required="" type="datetime-local">
-                                        </div>
+                    <form id="ad-form">
+                        <ul class="dash-pro-body">
+                            <li>
+                                <div class="info-name">Name</div>
+                                <div class="info-value">
+                                    <div class="form">
+                                        <input class="input" id="vehicle-name" placeholder="Input Vehicle Name" required="" type="text">
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="info-name">End Date and Time</div>
-                                    <div class="info-value">
-                                        <div class="form">
-                                            <input class="input" id="end-date" required="" type="datetime-local">
-                                        </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="info-name">Description</div>
+                                <div class="info-value">
+                                    <div class="form">
+                                        <input class="input" id="description" placeholder="Input Description" required="" type="text">
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="info-name">Starting Price</div>
-                                    <div class="info-value">
-                                        <div class="form">
-                                            <input class="input" id="starting-price" placeholder="Input Price" required="" type="number" step="0.01">
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="dash-pro-item mb-30 dashboard-widget">
-                            <div class="header">
-                                <h4 class="title">Upload Images</h4>
-                            </div>
-                            <ul class="dash-pro-body">
-                                <li>
-                                    <label for="file" class="labelFile">
-                                        <span>
-                                            <p>Click to select a file!</p>
-                                        </span>
-                                    </label>
-                                    <input class="input-img" id="file" type="file" required />
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
                 </div>
-            </form>
-              
             </div>
-          </div>
+            <div class="col-12">
+                <div class="dash-pro-item mb-30 dashboard-widget">
+                    <div class="header">
+                        <h4 class="title">Ad Details</h4>
+                    </div>
+                    <ul class="dash-pro-body">
+                        <li>
+                            <div class="info-name">Start Date and Time</div>
+                            <div class="info-value">
+                                <div class="form">
+                                    <input class="input" id="start-date" required="" type="datetime-local">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-name">End Date and Time</div>
+                            <div class="info-value">
+                                <div class="form">
+                                    <input class="input" id="endTime" required="" type="datetime-local">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-name">Starting Price</div>
+                            <div class="info-value">
+                                <div class="form">
+                                    <input class="input" id="startingBid" placeholder="Input Price" required="" type="number" step="0.01">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
+    </div>
+    
         <br>
+
+        <script>
+
+
+          // Function to get the user ID from the URL
+      function getUserIdFromUrl() {
+              // Log the full query string for debugging
+              console.log("Query String:", window.location.search);
+      
+              const urlParams = new URLSearchParams(window.location.search);
+              const userId = urlParams.get('userId') || 'null'; // Return 'null' if userId is not found
+
+              // Update the dashboard and settings links with the userId as a query parameter
+              const dashboardLink = document.querySelector('a[href="DashBoard.html"]');
+              const settingsLink = document.querySelector('a[href="Settings.html"]');
+              const createnewLink = document.querySelector('a[href="CreateAd.html"]');
+
+              if (dashboardLink) {
+                  dashboardLink.href = `DashBoard.html?userId=${userId}`;
+              }
+
+              if (createnewLink) {
+                  createnewLink.href = `CreateAD.html?userId=${userId}`;
+              }
+              
+              if (settingsLink) {
+                  settingsLink.href = `Settings.html?userId=${userId}`;
+              }
+      
+              console.log('Extracted userId:', userId); // Log the extracted userId for debugging
+              return userId;
+          }
+
+          // Get the user ID from the URL
+          const userId = getUserIdFromUrl();
+          // Function to get the user ID from the URL
+        function getUserIdFromUrl() {
+              // Log the full query string for debugging
+              console.log("Query String:", window.location.search);
+      
+              const urlParams = new URLSearchParams(window.location.search);
+              const userId = urlParams.get('userId') || 'null'; // Return 'null' if userId is not found
+
+              // Update the dashboard and settings links with the userId as a query parameter
+              const dashboardLink = document.querySelector('a[href="DashBoard.html"]');
+              const settingsLink = document.querySelector('a[href="Settings.html"]');
+              const createnewLink = document.querySelector('a[href="CreateAd.html"]');
+
+              if (dashboardLink) {
+                  dashboardLink.href = `DashBoard.html?userId=${userId}`;
+              }
+
+              if (createnewLink) {
+                  createnewLink.href = `CreateAD.html?userId=${userId}`;
+              }
+              
+              if (settingsLink) {
+                  settingsLink.href = `Settings.html?userId=${userId}`;
+              }
+      
+              console.log('Extracted userId:', userId); // Log the extracted userId for debugging
+              return userId;
+          }
+
+          
+          document.addEventListener('DOMContentLoaded', function () {
+          // Function to get auctionId and userId from URL
+          function getParamsFromUrl() {
+              const urlParams = new URLSearchParams(window.location.search);
+              return {
+                  auctionId: urlParams.get('auctionId'),
+                  userId: urlParams.get('userId')
+              };
+          }
+
+          const { auctionId, userId } = getParamsFromUrl();
+
+          // Function to fetch auction details
+          function fetchAuctionDetails() {
+              const accessToken = localStorage.getItem('jwtToken');
+
+              fetch(`https://localhost:7047/api/Auction/${auctionId}`, {
+                  method: 'GET',
+                  headers: {
+                      'Authorization': `Bearer ${accessToken}`
+                  }
+              })
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('Failed to fetch auction details');
+                  }
+                  return response.json();
+              })
+              .then(data => {
+                  // Populate the form with auction details
+                  document.getElementById('vehicle-name').value = data.title;
+                  document.getElementById('description').value = data.description;
+                  document.getElementById('start-date').value = new Date(data.startTime).toISOString().slice(0, 16);
+                  document.getElementById('endTime').value = new Date(data.endTime).toISOString().slice(0, 16);
+                  document.getElementById('startingBid').value = data.startingBid;
+              })
+              .catch(error => console.error('Error fetching auction details:', error));
+          }
+
+          // Function to update auction details
+          function updateAuction() {
+              const accessToken = localStorage.getItem('jwtToken');
+
+              const updatedAuction = {
+                  title: document.getElementById('vehicle-name').value,
+                  description: document.getElementById('description').value,
+                  startTime: document.getElementById('start-date').value,
+                  endTime: document.getElementById('endTime').value,
+                  startingBid: parseFloat(document.getElementById('startingBid').value)
+              };
+
+              fetch(`https://localhost:7047/api/Auction/${auctionId}`, {
+                  method: 'PUT',
+                  headers: {
+                      'Authorization': `Bearer ${accessToken}`,
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(updatedAuction)
+              })
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('Failed to update auction');
+                  }
+                  alert('Auction updated successfully!');
+                  // Redirect or perform any other action after successful update
+              })
+              .catch(error => console.error('Error updating auction:', error));
+          }
+
+          // Fetch auction details on page load
+          fetchAuctionDetails();
+
+          // Attach event listener to the Update button
+          document.getElementById('updateBtn').addEventListener('click', function (event) {
+              event.preventDefault(); // Prevent default form submission
+              updateAuction();
+          });
+      });
+
+        
+        </script>
         <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
         <script src="assets/js/jquery-3.6.0.min.js"></script>
         <script src="assets/js/bootstrap.bundle.min.js"></script>
