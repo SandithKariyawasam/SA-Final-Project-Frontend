@@ -23,7 +23,7 @@
           <div class="row">
             <div class="col-xl-2 align-items-center d-xl-flex d-lg-block">
               <div class="nav-logo d-flex justify-content-between align-items-center">
-                <a href="index.html"><img src="assets/images/AutoBid logo.png" style="width: 60px;" alt="logo"></a>
+                <a href="index.html"><img src="assets/images/AutoBid logo.png"style="width: 60px;" alt="logo"></a>
                 <div class="d-flex align-items-center gap-4">
                   <ul class="nav-actions nav-inner-actions d-flex d-xl-none">
                     <li class="header-account me-0 position-relative">
@@ -32,18 +32,9 @@
                       </a>
                       <ul class="dropdown-menu account-list-mobile" aria-labelledby="dropdownMenu4">
                         <li class="dropdown-item"><a href="login.html">My account</a></li>
-                        <li class="dropdown-item"><a href="login.html">Login</a></li>
-                        <li class="dropdown-item mb-0"><a href="register.html">Register</a></li>
                       </ul>
                     </li>
                   </ul>
-                  <div class="mobile-menu d-flex ">
-                    <a href="javascript:void(0)" class="hamburger d-block d-xl-none">
-                      <span class="h-top"></span>
-                      <span class="h-middle"></span>
-                      <span class="h-bottom"></span>
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -56,21 +47,14 @@
                   <li>
                     <a href="index.html">Home</a>
                   </li>
-                  <li class="has-child-menu">
-                    <a href="javascript:void(0)">Auction</a>
-                    <i class="fl flaticon-plus">+</i>
-                    <ul class="sub-menu">
-                      <li><a href="auction.html">auction</a></li>
-                      <li><a href="auction-details.html">auction details</a></li>
-                    </ul>
+                  <li>
+                    <a href="auction.html">Auction</a>
                   </li>
                   <li class="has-child-menu">
                     <a href="javascript:void(0)">Pages</a>
                     <i class="fl flaticon-plus">+</i>
                     <ul class="sub-menu">
                       <li><a href="about.html">about</a></li>
-                      <li><a href="login.html">login</a></li>
-                      <li><a href="register.html">register</a></li>
                       <li><a href="privacy.html">Privacy Policy</a></li>
                     </ul>
                   </li>
@@ -79,11 +63,20 @@
               </nav>
             </div>
             <div class="col-xl-5 d-xl-flex align-items-center justify-content-end d-none">
-              <div class="user-img-nav">
-                <img src="assets/images/images/user.png" class="user-img" alt="">
-              </div>
-              <div class="user-img-nav" style="margin-left: 10px; color: aliceblue;">
-                <span>Sandith Kariyawasam</span>
+              <div class="nav-right d-flex align-items-center">
+                <div class="nav-actions d-flex align-items-center">
+                  <ul class="d-flex">
+                    <li class="search-btn d-block d-xxl-none"><i class="bi bi-search"></i></li>
+                    <li class="header-account me-0 position-relative">
+                      <a id="dropdownMenu2" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-fill"></i>
+                      </a>
+                      <ul class="dropdown-menu account-list" aria-labelledby="dropdownMenu2">
+                        <li class="dropdown-item"><a href="MyAccount.html">My account</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -105,20 +98,9 @@
               <p>DashBoard</p>
             </li>
           </a>
-          <a href="Transactions.html">
-            <li><img src="assets/images/images/reports.png" alt="">
-              <p>Transactions</p>
-            </li>
-          </a>
           <a href="CreateAd.html">
             <li><img src="assets/images/images/rewards.png" alt="">
               <p>Create New AD</p>
-            </li>
-          </a>
-          
-          <a href="ManageAd.html">
-            <li><img src="assets/images/images/reports.png" alt="">
-              <p>Manage Ads</p>
             </li>
           </a>
           <a href="#" class="active">
@@ -128,91 +110,89 @@
           </a>
         </ul>
         <ul class="ul">
-          <li>
-            <img src="assets/images/images/setting.png" alt="">
-            <p>Log Out</p>
+          <li id="logout-button" style="cursor: pointer; ">  <!-- Add cursor style for better UX -->
+              <img src="assets/images/images/setting.png" alt="">
+              <p>Log Out</p>
           </li>
-        </ul>
+      </ul>
       </div>
       <div class="main_content My-Profile">
-        <div class="header">Settings<button class="button-right">Save</button>
+    <div class="header">Settings<button type="button" class="button-right" id="saveBtn">Save</button></div>
+    <div class="row justify-content-center mb-30-none">
+        <div class="col-12">
+            <div class="dash-pro-item mb-30 dashboard-widget">
+                <div class="header">
+                    <h4 class="title">Email Address</h4>
+                </div>
+                <ul class="dash-pro-body">
+                    <li>
+                        <div class="info-name">Email</div>
+                        <div class="form">
+                            <input class="input" id="email" placeholder="Input Email" required type="email">
+                            <span class="input-border"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="row justify-content-center mb-30-none">
-          <!--
-          <div class="col-12">
-            <div class="dash-pro-item mb-30 dashboard-widget">
-              <div class="header">
-                <h4 class="title">Personal Details</h4>
-              </div>
-              <ul class="dash-pro-body">
-                <li>
-                  <div class="info-name">Name</div>
-                  <div class="form">
-                    <input class="input" placeholder="Input Name" required="" type="text">
-                    <span class="input-border"></span>
-                  </div>
-                </li>
-                <li>
-                  <div class="info-name">Address</div>
-                  <div class="form">
-                    <input class="input" placeholder="Input Address" required="" type="text">
-                    <span class="input-border"></span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>-->
-          <div class="col-12">
-            <div class="dash-pro-item mb-30 dashboard-widget">
-              <div class="header">
-                <h4 class="title">Email Address</h4>
-              </div>
-              <ul class="dash-pro-body">
-                <li>
-                  <div class="info-name">Email</div>
-                  <div class="form">
-                    <input class="input" placeholder="Input Email" required="" type="email">
-                    <span class="input-border"></span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!--
-          <div class="col-12">
-            <div class="dash-pro-item mb-30 dashboard-widget">
-              <div class="header">
-                <h4 class="title">Phone</h4>
-              </div>
-              <ul class="dash-pro-body">
-                <li>
-                  <div class="info-name">Mobile</div>
-                  <div class="form">
-                    <input class="input" placeholder="Input Mobile Number" required="" type="number">
-                    <span class="input-border"></span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div> -->
-          <div class="col-12">
+        <div class="col-12">
             <div class="dash-pro-item dashboard-widget">
-              <div class="header">
-                <h4 class="title">Security</h4>
-              </div>
-              <ul class="dash-pro-body">
-                <li>
-                  <div class="info-name">Password</div>
-                  <div class="form">
-                    <input class="input" placeholder="Input Password" required="" type="password">
-                    <span class="input-border"></span>
-                  </div>
-                </li>
-              </ul>
+                <div class="header">
+                    <h4 class="title">Security</h4>
+                </div>
+                <ul class="dash-pro-body">
+                    <li>
+                        <div class="info-name">Password</div>
+                        <div class="form">
+                            <input class="input" id="password" placeholder="Input Password" required type="password">
+                            <span class="input-border"></span>
+                        </div>
+                    </li>
+                </ul>
             </div>
-          </div>
         </div>
     </div>
+</div>
+
+<script>
+  // Function to get the user ID from the URL
+  function getUserIdFromUrl() {
+          // Log the full query string for debugging
+          console.log("Query String:", window.location.search);
+  
+          const urlParams = new URLSearchParams(window.location.search);
+          const userId = urlParams.get('userId') || 'null'; // Return 'null' if userId is not found
+
+          // Update the dashboard and settings links with the userId as a query parameter
+          const dashboardLink = document.querySelector('a[href="DashBoard.html"]');
+          const settingsLink = document.querySelector('a[href="Settings.html"]');
+          const createnewLink = document.querySelector('a[href="CreateAd.html"]');
+
+          if (dashboardLink) {
+              dashboardLink.href = `DashBoard.html?userId=${userId}`;
+          }
+
+          if (createnewLink) {
+              createnewLink.href = `CreateAD.html?userId=${userId}`;
+          }
+          
+          if (settingsLink) {
+              settingsLink.href = `Settings.html?userId=${userId}`;
+          }
+  
+          console.log('Extracted userId:', userId); // Log the extracted userId for debugging
+          return userId;
+      }
+
+      // Get the user ID from the URL
+      const userId = getUserIdFromUrl();
+
+      
+
+      
+</script>
+
+    
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>

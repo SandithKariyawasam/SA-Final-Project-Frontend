@@ -37,8 +37,6 @@
                       </a>
                       <ul class="dropdown-menu account-list-mobile" aria-labelledby="dropdownMenu4">
                         <li class="dropdown-item"><a href="login.html">My account</a></li>
-                        <li class="dropdown-item"><a href="login.html">Login</a></li>
-                        <li class="dropdown-item mb-0"><a href="register.html">Register</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -54,21 +52,15 @@
                   <li>
                     <a href="index.html">Home</a>
                   </li>
-                  <li class="has-child-menu">
-                    <a href="javascript:void(0)">Auction</a>
-                    <i class="fl flaticon-plus">+</i>
-                    <ul class="sub-menu">
-                      <li><a href="auction.html">auction</a></li>
-                      <li><a href="auction-details.html">auction details</a></li>
-                    </ul>
+                  
+                  <li>
+                    <a href="auction.html">Auction</a>
                   </li>
                   <li class="has-child-menu">
                     <a href="javascript:void(0)">Pages</a>
                     <i class="fl flaticon-plus">+</i>
                     <ul class="sub-menu">
                       <li><a href="about.html">about</a></li>
-                      <li><a href="login.html">login</a></li>
-                      <li><a href="register.html">register</a></li>
                       <li><a href="privacy.html">Privacy Policy</a></li>
                     </ul>
                   </li>
@@ -87,8 +79,6 @@
                       </a>
                       <ul class="dropdown-menu account-list" aria-labelledby="dropdownMenu2">
                         <li class="dropdown-item"><a href="MyAccount.html">My account</a></li>
-                        <li class="dropdown-item"><a href="login.html">Login</a></li>
-                        <li class="dropdown-item"><a href="register.html">Register</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -292,7 +282,7 @@
           function fetchCurrentBid(vehicleId) {
               const accessToken = localStorage.getItem('jwtToken'); // Get the access token
   
-              fetch(`https://localhost:7047/api/Bid`, {
+              return fetch(`https://localhost:7047/api/Bid`, {
                   method: 'GET',
                   headers: {
                       'Authorization': `Bearer ${accessToken}`
@@ -307,7 +297,9 @@
               .then(data => {
                   // Find the current bid for the specific vehicleId
                   const currentBid = data.find(bid => bid.vehiucleId === vehicleId);
-                  document.getElementById('auction-current-bid').innerText = currentBid ? currentBid.BidAmount : '0.00'; // Display current bid amount
+                  const bidAmount = currentBid ? currentBid.BidAmount : 0;
+                  document.getElementById('auction-current-bid').innerText = bidAmount; // Display current bid amount
+                  return bidAmount; // Return current bid amount
               })
               .catch(error => {
                   console.error('Error fetching current bid:', error);
@@ -339,7 +331,7 @@
               .then(data => {
                   // After creating a bid, fetch the updated current bid
                   fetchCurrentBid(vehicleId);
-                  
+  
                   // Refresh the page after placing the bid
                   window.location.reload(); // Reload the page to reflect changes
               })
@@ -387,7 +379,18 @@
   
               if (auctionId && !isNaN(bidAmount) && bidAmount > 0) {
                   const vehicleId = auctionId; // Assign auctionId to vehicleId
-                  createBid(vehicleId, bidAmount); // Create a new bid
+  
+                  // Fetch the current bid and then compare
+                  fetchCurrentBid(vehicleId).then(currentBid => {
+                      if (bidAmount > currentBid) {
+                          createBid(vehicleId, bidAmount); // Create a new bid
+                      } else {
+                          alert('Your bid must be higher than the current bid.');
+                      }
+                  }).catch(error => {
+                      console.error('Error fetching the current bid:', error);
+                      alert('Could not fetch current bid. Please try again later.');
+                  });
               } else {
                   alert('Please enter a valid bid amount.');
               }
@@ -403,6 +406,7 @@
           }
       });
   </script>
+  
     
   
     <script src="assets/js/jquery-3.6.0.min.js"></script>

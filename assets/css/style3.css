@@ -169,7 +169,7 @@ ul {
     border-radius: 25px;
     display: block;
   }
-  .dashboard-menu li a i {
+  #logout-button:hover {
     font-weight: 400;
     margin-right: 10px;
     color: #ee4730;

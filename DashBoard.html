@@ -24,7 +24,7 @@
           <div class="row">
             <div class="col-xl-2 align-items-center d-xl-flex d-lg-block">
               <div class="nav-logo d-flex justify-content-between align-items-center">
-                <a href="index.html"><img src="assets/images/AutoBid logo.png" style="width: 60px;" alt="logo"></a>
+                <a href="index.html"><img src="assets/images/AutoBid logo.png"style="width: 60px;" alt="logo"></a>
                 <div class="d-flex align-items-center gap-4">
                   <ul class="nav-actions nav-inner-actions d-flex d-xl-none">
                     <li class="header-account me-0 position-relative">
@@ -33,18 +33,9 @@
                       </a>
                       <ul class="dropdown-menu account-list-mobile" aria-labelledby="dropdownMenu4">
                         <li class="dropdown-item"><a href="login.html">My account</a></li>
-                        <li class="dropdown-item"><a href="login.html">Login</a></li>
-                        <li class="dropdown-item mb-0"><a href="register.html">Register</a></li>
                       </ul>
                     </li>
                   </ul>
-                  <div class="mobile-menu d-flex ">
-                    <a href="javascript:void(0)" class="hamburger d-block d-xl-none">
-                      <span class="h-top"></span>
-                      <span class="h-middle"></span>
-                      <span class="h-bottom"></span>
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -57,21 +48,14 @@
                   <li>
                     <a href="index.html">Home</a>
                   </li>
-                  <li class="has-child-menu">
-                    <a href="javascript:void(0)">Auction</a>
-                    <i class="fl flaticon-plus">+</i>
-                    <ul class="sub-menu">
-                      <li><a href="auction.html">auction</a></li>
-                      <li><a href="auction-details.html">auction details</a></li>
-                    </ul>
+                  <li>
+                    <a href="auction.html">Auction</a>
                   </li>
                   <li class="has-child-menu">
                     <a href="javascript:void(0)">Pages</a>
                     <i class="fl flaticon-plus">+</i>
                     <ul class="sub-menu">
                       <li><a href="about.html">about</a></li>
-                      <li><a href="login.html">login</a></li>
-                      <li><a href="register.html">register</a></li>
                       <li><a href="privacy.html">Privacy Policy</a></li>
                     </ul>
                   </li>
@@ -80,11 +64,20 @@
               </nav>
             </div>
             <div class="col-xl-5 d-xl-flex align-items-center justify-content-end d-none">
-              <div class="user-img-nav">
-                <img src="assets/images/images/user.png" class="user-img" alt="">
-              </div>
-              <div class="user-img-nav" style="margin-left: 10px; color: aliceblue;">
-                <span>Sandith Kariyawasam</span>
+              <div class="nav-right d-flex align-items-center">
+                <div class="nav-actions d-flex align-items-center">
+                  <ul class="d-flex">
+                    <li class="search-btn d-block d-xxl-none"><i class="bi bi-search"></i></li>
+                    <li class="header-account me-0 position-relative">
+                      <a id="dropdownMenu2" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-fill"></i>
+                      </a>
+                      <ul class="dropdown-menu account-list" aria-labelledby="dropdownMenu2">
+                        <li class="dropdown-item"><a href="MyAccount.html">My account</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -106,20 +99,9 @@
               <p>DashBoard</p>
             </li>
           </a>
-          <a href="Transactions.html">
-            <li><img src="assets/images/images/reports.png" alt="">
-              <p>Transactions</p>
-            </li>
-          </a>
           <a href="CreateAd.html">
             <li><img src="assets/images/images/rewards.png" alt="">
               <p>Create New AD</p>
-            </li>
-          </a>
-          
-          <a href="ManageAd.html">
-            <li><img src="assets/images/images/reports.png" alt="">
-              <p>Manage Ads</p>
             </li>
           </a>
           <a href="Settings.html">
@@ -129,11 +111,11 @@
           </a>
         </ul>
         <ul class="ul">
-          <li>
-            <img src="assets/images/images/setting.png" alt="">
-            <p>Log Out</p>
+          <li id="logout-button" style="cursor: pointer; ">  <!-- Add cursor style for better UX -->
+              <img src="assets/images/images/setting.png" alt="">
+              <p>Log Out</p>
           </li>
-        </ul>
+      </ul>
       </div>
       <div class="main_content My-Dashboard">
         <div class="header">DashBoard
@@ -145,11 +127,7 @@
                 <h4 class="title">My Ads</h4>
               </div>
               <table id="auction-table">
-                <thead>
-                    <tr>
-                        <th>Auction</th>
-                    </tr>
-                </thead>
+                
                 <tbody id="auction-table-body">
                     <!-- Auction rows will be dynamically inserted here -->
                 </tbody>
@@ -164,92 +142,170 @@
       </div>
       
       <script>
+        // Function to get the user ID from the URL
+        function getUserIdFromUrl() {
+            console.log("Query String:", window.location.search);
+    
+            const urlParams = new URLSearchParams(window.location.search);
+            const userId = urlParams.get('userId') || 'null'; // Return 'null' if userId is not found
+    
+            // Update the dashboard and settings links with the userId as a query parameter
+            const dashboardLink = document.querySelector('a[href="DashBoard.html"]');
+            const settingsLink = document.querySelector('a[href="Settings.html"]');
+            const createnewLink = document.querySelector('a[href="CreateAd.html"]');
+    
+            if (dashboardLink) {
+                dashboardLink.href = `DashBoard.html?userId=${userId}`;
+            }
+    
+            if (createnewLink) {
+                createnewLink.href = `CreateAD.html?userId=${userId}`;
+            }
+            
+            if (settingsLink) {
+                settingsLink.href = `Settings.html?userId=${userId}`;
+            }
+    
+            console.log('Extracted userId:', userId); // Log the extracted userId for debugging
+            return userId;
+        }
+    
+        // Get the user ID from the URL
+        const userId = getUserIdFromUrl();
+    
         document.addEventListener('DOMContentLoaded', function() {
-    // Function to fetch auctions
-    function fetchAuctions() {
-        const accessToken = localStorage.getItem('jwtToken'); // Get the access token
-
-        fetch('https://localhost:7047/api/Auction', {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${accessToken}`
-            }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json(); // Parse JSON response
-        })
-        .then(data => {
-            const tableBody = document.getElementById('auction-table-body'); // Get the table body element
-
-            // Clear existing content to prevent duplication
-            tableBody.innerHTML = '';
-
-            // Check if there are any auctions to display
-            if (data.length === 0) {
-                tableBody.innerHTML = '<tr><td>No auctions available.</td></tr>';
-                return; // Exit if no data
-            }
-
-            // Loop through the auction data and create table rows
-            for (let i = 0; i < data.length; i += 3) {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>
-                        <div class="card-container">
-                            <div class="card">
-                                <img src="${data[i].auctionImage}" alt="${data[i].title}">
-                                <div class="card-content">
-                                    <h3>${data[i].title}</h3>
-                                    <p>Current Bid: $${data[i].startingBid}</p>
-                                    <a href="ManageAd.html?id=${data[i].id}" class="btn-1">Edit</a>
-                                    <a href="#" class="btn-2" data-id="${data[i].id}">Remove</a>
+            // Function to fetch auctions
+            function fetchAuctions() {
+                const accessToken = localStorage.getItem('jwtToken'); // Get the access token
+    
+                fetch('https://localhost:7047/api/Auction', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json(); // Parse JSON response
+                })
+                .then(data => {
+                    const tableBody = document.getElementById('auction-table-body'); // Get the table body element
+    
+                    // Clear existing content to prevent duplication
+                    tableBody.innerHTML = '';
+    
+                    // Filter auctions based on sellerId matching the userId
+                    const filteredData = data.filter(auction => auction.sellerId === userId);
+    
+                    // Check if there are any auctions to display
+                    if (filteredData.length === 0) {
+                        tableBody.innerHTML = '<tr><td>No auctions available.</td></tr>';
+                        return; // Exit if no matching data
+                    }
+    
+                    // Loop through the filtered auction data and create table rows
+                    for (let i = 0; i < filteredData.length; i += 3) {
+                        console.log(filteredData[i]); // Log the auction data to check the structure
+                        
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>
+                                <div class="card-container">
+                                    <div class="card">
+                                        <img src="${filteredData[i].auctionImage}" alt="${filteredData[i].title}">
+                                        <div class="card-content">
+                                            <h3>${filteredData[i].title}</h3>
+                                            <p>Current Bid: Lkr${filteredData[i].startingBid}</p>
+                                            <a href="ManageAd.html?auctionId=${filteredData[i].auctionId || filteredData[i].id}&userId=${userId}" class="btn-1">Edit</a> <!-- Pass auctionId and userId in URL -->
+                                            <a href="#" class="btn-2" data-id="${filteredData[i].auctionId || filteredData[i].id}">Remove</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </td>
-                    ${i + 1 < data.length ? `
-                    <td>
-                        <div class="card-container">
-                            <div class="card">
-                                <img src="${data[i + 1].auctionImage}" alt="${data[i + 1].title}">
-                                <div class="card-content">
-                                    <h3>${data[i + 1].title}</h3>
-                                    <p>Current Bid: $${data[i + 1].startingBid}</p>
-                                    <a href="ManageAd.html?id=${data[i + 1].id}" class="btn-1">Edit</a>
-                                    <a href="#" class="btn-2" data-id="${data[i + 1].id}">Remove</a>
+                            </td>
+                            ${i + 1 < filteredData.length ? `
+                            <td>
+                                <div class="card-container">
+                                    <div class="card">
+                                        <img src="${filteredData[i + 1].auctionImage}" alt="${filteredData[i + 1].title}">
+                                        <div class="card-content">
+                                            <h3>${filteredData[i + 1].title}</h3>
+                                            <p>Current Bid: Lkr${filteredData[i + 1].startingBid}</p>
+                                            <a href="ManageAd.html?auctionId=${filteredData[i + 1].auctionId || filteredData[i + 1].id}&userId=${userId}" class="btn-1">Edit</a>
+                                            <a href="#" class="btn-2" data-id="${filteredData[i + 1].auctionId || filteredData[i + 1].id}">Remove</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </td>` : ''}
-                    ${i + 2 < data.length ? `
-                    <td>
-                        <div class="card-container">
-                            <div class="card">
-                                <img src="${data[i + 2].auctionImage}" alt="${data[i + 2].title}">
-                                <div class="card-content">
-                                    <h3>${data[i + 2].title}</h3>
-                                    <p>Current Bid: $${data[i + 2].startingBid}</p>
-                                    <a href="ManageAd.html?id=${data[i + 2].id}" class="btn-1">Edit</a>
-                                    <a href="#" class="btn-2" data-id="${data[i + 2].id}">Remove</a>
+                            </td>` : ''}
+                            ${i + 2 < filteredData.length ? `
+                            <td>
+                                <div class="card-container">
+                                    <div class="card">
+                                        <img src="${filteredData[i + 2].auctionImage}" alt="${filteredData[i + 2].title}">
+                                        <div class="card-content">
+                                            <h3>${filteredData[i + 2].title}</h3>
+                                            <p>Current Bid: Lkr${filteredData[i + 2].startingBid}</p>
+                                            <a href="ManageAd.html?auctionId=${filteredData[i + 2].auctionId || filteredData[i + 2].id}&userId=${userId}" class="btn-1">Edit</a>
+                                            <a href="#" class="btn-2" data-id="${filteredData[i + 2].auctionId || filteredData[i + 2].id}">Remove</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </td>` : ''}
-                `;
-                tableBody.appendChild(row); // Append the row to the table body
+                            </td>` : ''}
+                        `;
+                        tableBody.appendChild(row); // Append the row to the table body
+                    }
+    
+                    // Attach event listeners to the Remove buttons
+                    attachDeleteListeners();
+                })
+                .catch(error => console.error('Error fetching auctions:', error));
             }
-        })
-        .catch(error => console.error('Error fetching auctions:', error));
-    }
-
-    // Call fetchAuctions on page load
-    fetchAuctions();
-});
-
+    
+            // Function to delete an auction
+            function deleteAuction(auctionId) {
+                const accessToken = localStorage.getItem('jwtToken'); // Get the access token
+    
+                fetch(`https://localhost:7047/api/Auction/${auctionId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to delete auction');
+                    }
+                    console.log(`Auction with ID ${auctionId} deleted successfully`);
+                    // Refresh the auctions after deletion
+                    fetchAuctions();
+                })
+                .catch(error => console.error('Error deleting auction:', error));
+            }
+    
+            // Function to attach delete listeners to Remove buttons
+            function attachDeleteListeners() {
+                const removeButtons = document.querySelectorAll('.btn-2'); // Select all remove buttons
+                removeButtons.forEach(button => {
+                    button.addEventListener('click', function(event) {
+                        event.preventDefault(); // Prevent default link behavior
+                        const auctionId = this.getAttribute('data-id'); // Get the auction ID from data-id
+                        if (confirm('Are you sure you want to delete this auction?')) {
+                            deleteAuction(auctionId); // Call deleteAuction function
+                        }
+                    });
+                });
+            }
+    
+            // Call fetchAuctions on page load
+            fetchAuctions();
+        });
     </script>
+    
+    
+    
+    
       
       <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
       <script src="assets/js/jquery-3.6.0.min.js"></script>
