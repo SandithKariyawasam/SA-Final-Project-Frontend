@@ -154,44 +154,45 @@
     </div>
 </div>
 
+<script>
+  // Function to get the user ID from the URL
+  function getUserIdFromUrl() {
+          // Log the full query string for debugging
+          console.log("Query String:", window.location.search);
+  
+          const urlParams = new URLSearchParams(window.location.search);
+          const userId = urlParams.get('userId') || 'null'; // Return 'null' if userId is not found
 
-    <script>
-      // Function to get the user ID from the URL
-      function getUserIdFromUrl() {
-              // Log the full query string for debugging
-              console.log("Query String:", window.location.search);
-      
-              const urlParams = new URLSearchParams(window.location.search);
-              const userId = urlParams.get('userId') || 'null'; // Return 'null' if userId is not found
+          // Update the dashboard and settings links with the userId as a query parameter
+          const dashboardLink = document.querySelector('a[href="DashBoard.html"]');
+          const settingsLink = document.querySelector('a[href="Settings.html"]');
+          const createnewLink = document.querySelector('a[href="CreateAd.html"]');
 
-              // Update the dashboard and settings links with the userId as a query parameter
-              const dashboardLink = document.querySelector('a[href="DashBoard.html"]');
-              const settingsLink = document.querySelector('a[href="Settings.html"]');
-              const createnewLink = document.querySelector('a[href="CreateAd.html"]');
-
-              if (dashboardLink) {
-                  dashboardLink.href = `DashBoard.html?userId=${userId}`;
-              }
-
-              if (createnewLink) {
-                  createnewLink.href = `CreateAD.html?userId=${userId}`;
-              }
-              
-              if (settingsLink) {
-                  settingsLink.href = `Settings.html?userId=${userId}`;
-              }
-      
-              console.log('Extracted userId:', userId); // Log the extracted userId for debugging
-              return userId;
+          if (dashboardLink) {
+              dashboardLink.href = `DashBoard.html?userId=${userId}`;
           }
 
-          // Get the user ID from the URL
-          const userId = getUserIdFromUrl();
-
+          if (createnewLink) {
+              createnewLink.href = `CreateAD.html?userId=${userId}`;
+          }
           
+          if (settingsLink) {
+              settingsLink.href = `Settings.html?userId=${userId}`;
+          }
+  
+          console.log('Extracted userId:', userId); // Log the extracted userId for debugging
+          return userId;
+      }
 
-          
-    </script>
+      // Get the user ID from the URL
+      const userId = getUserIdFromUrl();
+
+      
+
+      
+</script>
+
+    
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
