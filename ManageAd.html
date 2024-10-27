@@ -17,6 +17,7 @@
   <body>
 
     <!--Header Part-->
+
     <header>
       <div class="header-area header-style-one px-md-5">
         <div class="container-fluid">
@@ -65,17 +66,7 @@
             <div class="col-xl-5 d-xl-flex align-items-center justify-content-end d-none">
               <div class="nav-right d-flex align-items-center">
                 <div class="nav-actions d-flex align-items-center">
-                  <ul class="d-flex">
-                    <li class="search-btn d-block d-xxl-none"><i class="bi bi-search"></i></li>
-                    <li class="header-account me-0 position-relative">
-                      <a id="dropdownMenu2" data-bs-toggle="dropdown">
-                        <i class="bi bi-person-fill"></i>
-                      </a>
-                      <ul class="dropdown-menu account-list" aria-labelledby="dropdownMenu2">
-                        <li class="dropdown-item"><a href="MyAccount.html">My account</a></li>
-                      </ul>
-                    </li>
-                  </ul>
+                    <a href="Notification.html"><img src="assets/images/images/notification-bell.png" style="width: 30px;"/></a>
                 </div>
               </div>
             </div>
@@ -200,23 +191,33 @@
 
               // Update the dashboard and settings links with the userId as a query parameter
               const dashboardLink = document.querySelector('a[href="DashBoard.html"]');
-              const settingsLink = document.querySelector('a[href="Settings.html"]');
-              const createnewLink = document.querySelector('a[href="CreateAd.html"]');
-
-              if (dashboardLink) {
-                  dashboardLink.href = `DashBoard.html?userId=${userId}`;
-              }
-
-              if (createnewLink) {
-                  createnewLink.href = `CreateAD.html?userId=${userId}`;
-              }
-              
-              if (settingsLink) {
-                  settingsLink.href = `Settings.html?userId=${userId}`;
-              }
-      
-              console.log('Extracted userId:', userId); // Log the extracted userId for debugging
-              return userId;
+                const settingsLink = document.querySelector('a[href="Settings.html"]');
+                const createNewLink = document.querySelector('a[href="CreateAd.html"]');
+                const paymentLink = document.querySelector('a[href="payment.html"]');
+                const notificationLink = document.querySelector('a[href="Notification.html"]');
+        
+                if (dashboardLink) {
+                    dashboardLink.href = `DashBoard.html?userId=${userId}`;
+                }
+        
+                if (createNewLink) {
+                    createNewLink.href = `CreateAD.html?userId=${userId}`;
+                }
+        
+                if (settingsLink) {
+                    settingsLink.href = `Settings.html?userId=${userId}`;
+                }
+        
+                if (notificationLink) {
+                    notificationLink.href = `Notification.html?userId=${userId}`;
+                }
+        
+                if (paymentLink) {
+                    paymentLink.href = `payment.html?userId=${userId}`;
+                }
+        
+                console.log('Extracted userId:', userId); // Log the extracted userId for debugging
+                return userId;
           }
 
           // Get the user ID from the URL

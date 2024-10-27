@@ -410,16 +410,20 @@
                   // Clear existing content to prevent duplication
                   tableBody.innerHTML = '';
   
-                  // Check if there are any auctions to display
-                  if (data.length === 0) {
-                      tableBody.innerHTML = '<tr><td>No auctions available.</td></tr>';
-                      return; // Exit if no data
+                  // Filter out ended auctions
+                  const currentTime = new Date().getTime(); // Get current time in milliseconds
+                  const activeAuctions = data.filter(auction => new Date(auction.endTime).getTime() > currentTime);
+  
+                  // Check if there are any active auctions to display
+                  if (activeAuctions.length === 0) {
+                      tableBody.innerHTML = '<tr><td>No active auctions available.</td></tr>';
+                      return; // Exit if no active auctions
                   }
   
                   let rowDiv; // Variable to hold the row container
                   let auctionCount = 0; // Counter for auctions displayed
   
-                  data.forEach((auction, index) => {
+                  activeAuctions.forEach((auction, index) => {
                       if (auctionCount >= 9) return; // Stop after 9 auctions
   
                       if (auctionCount % 3 === 0) {
@@ -430,14 +434,13 @@
                       }
   
                       // Convert end time to a readable format
-                      const endDate = new Date(auction.endTime).toLocaleDateString();
                       const auctionId = auction.auctionId; // Get auction ID for countdown
   
                       // Format the starting bid
                       const startingBid = auction.startingBid.toLocaleString('en-US', {
                           minimumFractionDigits: 2,
                           maximumFractionDigits: 2,
-                      }).replace(/,/g, ',').replace('.', '.');
+                      });
   
                       // Create the auction card
                       const auctionCard = document.createElement('div');
@@ -499,12 +502,12 @@
               })
               .then(bidData => {
                   bidData.forEach(bid => {
-                      const bidAmountElement = document.getElementById(`bid-amount-${bid.vehiucleId}`); // Adjust based on your model
+                      const bidAmountElement = document.getElementById(`bid-amount-${bid.vehicleId}`); // Adjust based on your model
                       if (bidAmountElement) {
                           const bidAmount = bid.bidAmount.toLocaleString('en-US', {
                               minimumFractionDigits: 2,
                               maximumFractionDigits: 2,
-                          }).replace(/,/g, ',').replace('.', '.');
+                          });
                           bidAmountElement.textContent = `LKR ${bidAmount}`;
                       }
                   });
@@ -530,10 +533,14 @@
                   // Display the result in the countdown element
                   countdownElement.querySelector('h6').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
   
-                  // If the countdown is over, display a message
+                  // If the countdown is over, display a message and remove the auction
                   if (distance < 0) {
                       clearInterval(interval);
                       countdownElement.querySelector('h6').innerHTML = "Auction Ended";
+                      const auctionCard = countdownElement.closest('.product-card');
+                      if (auctionCard) {
+                          auctionCard.style.display = 'none'; // Hide the auction card
+                      }
                   }
               }, 1000); // Update every second
           }
@@ -541,9 +548,8 @@
           // Call fetchAuctions on page load
           fetchAuctions();
       });
-
-      
   </script>
+  
   
     
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>

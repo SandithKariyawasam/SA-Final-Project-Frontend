@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>AutoBid</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="assets/images/AutoBid logo.png" type="image/gif" sizes="20x20">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/boxicons.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style3.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    
+  </head>
+  <body>
+    
+
+    <!--Header Part-->
+
+    <header>
+      <div class="header-area header-style-one px-md-5">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-2 align-items-center d-xl-flex d-lg-block">
+              <div class="nav-logo d-flex justify-content-between align-items-center">
+                <a href="index.html"><img src="assets/images/AutoBid logo.png"style="width: 60px;" alt="logo"></a>
+                <div class="d-flex align-items-center gap-4">
+                  <ul class="nav-actions nav-inner-actions d-flex d-xl-none">
+                    <li class="header-account me-0 position-relative">
+                      <a href="login.html" id="dropdownMenu4" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-fill"></i>
+                      </a>
+                      <ul class="dropdown-menu account-list-mobile" aria-labelledby="dropdownMenu4">
+                        <li class="dropdown-item"><a href="login.html">My account</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-5">
+              <nav class="main-nav">
+                <div class="inner-logo d-xl-none text-center mt-4">
+                  <a href="#"><img src="assets/images/logo-dark.png" alt></a>
+                </div>
+                <ul>
+                  <li>
+                    <a href="index.html">Home</a>
+                  </li>
+                  <li>
+                    <a href="auction.html">Auction</a>
+                  </li>
+                  <li class="has-child-menu">
+                    <a href="javascript:void(0)">Pages</a>
+                    <i class="fl flaticon-plus">+</i>
+                    <ul class="sub-menu">
+                      <li><a href="about.html">about</a></li>
+                      <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="contact.html">contact</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="col-xl-5 d-xl-flex align-items-center justify-content-end d-none">
+              <div class="nav-right d-flex align-items-center">
+                <div class="nav-actions d-flex align-items-center">
+                    <a href="MyAccount.html"><img src="assets/images/images/notification-bell.png" style="width: 30px;"/></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <!--DashBoard-->
+    <div class="head">
+        <div class="side-nav">
+          <ul class="ul">
+            <a href="MyAccount.html" >
+              <li><img src="assets/images/images/members.png" alt="">
+                <p>My Profile</p>
+              </li>
+            </a>
+            <a href="DashBoard.html">
+              <li><img src="assets/images/images/dashboard.png" alt="">
+                <p>DashBoard</p>
+              </li>
+            </a>
+            <a href="CreateAd.html">
+              <li><img src="assets/images/images/rewards.png" alt="">
+                <p>Create New AD</p>
+              </li>
+            </a>
+            <a href="Settings.html">
+              <li><img src="assets/images/images/setting.png" alt="">
+                <p>Settings</p>
+              </li>
+            </a>
+          </ul>
+          <ul class="ul">
+            <li id="logout-button" style="cursor: pointer; ">  <!-- Add cursor style for better UX -->
+                <img src="assets/images/images/setting.png" alt="">
+                <p>Log Out</p>
+            </li>
+        </ul>
+        </div>
+        <div class="main_content My-Dashboard">
+            <div class="header">Notifications
+            </div>
+            <div class="">
+              <div class=""id="auctionList">
+                
+                  
+                </div>
+                  
+              </div>
+            </div>
+          </div>
+
+
+          <script>
+            function fetchUserInfo() {
+                const jwtToken = localStorage.getItem('jwtToken'); // Get the stored JWT token
+            }
+        
+            // Function to get the user ID from the URL
+            function getUserIdFromUrl() {
+                console.log("Query String:", window.location.search);
+        
+                const urlParams = new URLSearchParams(window.location.search);
+                const userId = urlParams.get('userId') || 'null'; // Return 'null' if userId is not found
+        
+                // Update links with userId
+                const dashboardLink = document.querySelector('a[href="DashBoard.html"]');
+                const settingsLink = document.querySelector('a[href="Settings.html"]');
+                const createNewLink = document.querySelector('a[href="CreateAd.html"]');
+                const paymentLink = document.querySelector('a[href="payment.html"]');
+                const notificationLink = document.querySelector('a[href="Notification.html"]');
+        
+                if (dashboardLink) {
+                    dashboardLink.href = `DashBoard.html?userId=${userId}`;
+                }
+        
+                if (createNewLink) {
+                    createNewLink.href = `CreateAD.html?userId=${userId}`;
+                }
+        
+                if (settingsLink) {
+                    settingsLink.href = `Settings.html?userId=${userId}`;
+                }
+        
+                if (notificationLink) {
+                    notificationLink.href = `Notification.html?userId=${userId}`;
+                }
+        
+                if (paymentLink) {
+                    paymentLink.href = `payment.html?userId=${userId}`;
+                }
+        
+                console.log('Extracted userId:', userId); // Log the extracted userId for debugging
+                return userId;
+            }
+        
+            // Function to fetch and display auction details for the given userId
+            function fetchAuctions(userId) {
+                fetch('https://localhost:7047/api/Auction', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`,
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const auctionList = document.getElementById('auctionList'); // Ensure you have an element with this ID
+                    auctionList.innerHTML = ''; // Clear previous content
+        
+                    // Get the current time
+                    const currentTime = new Date();
+        
+                    // Filter and display auctions where sellerId matches userId and endTime has passed
+                    const filteredAuctions = data.filter(auction => 
+                        auction.sellerId === userId && new Date(auction.endTime) < currentTime
+                    );
+        
+                    if (filteredAuctions.length === 0) {
+                        auctionList.innerHTML = '<p style="color:black">No Notification.</p>';
+                    } else {
+                        // Updated section in the fetchAuctions function
+                        filteredAuctions.forEach(auction => {
+                            // Create a new row for each auction
+                            const auctionItem = document.createElement('div');
+                            auctionItem.innerHTML = `
+                                <div class="dash-pro-item mb-30 dash-widget">
+                                    <div class="header">
+                                        <h4 class="title">${auction.title}</h4>
+                                    </div>
+                                    <strong>Auction Ended!</strong> 
+                                    Congratulations ${auction.sellerId}! You have won the car. 
+                                    Please complete your payment to finalize the transaction.
+                                    <br><br>
+                                    <a href="payment.html?userId=${userId}" class="btn-2">Payment</a>
+                                </div>
+                            `;
+                            auctionList.appendChild(auctionItem);
+                        });
+
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching auction data:', error);
+                });
+            }
+        
+            // Get the user ID from the URL
+            const userId = getUserIdFromUrl();
+        
+            // Fetch auctions after getting user ID
+            if (userId !== 'null') {
+                fetchAuctions(userId);
+            }
+        
+        </script>
+        
+        
+        
+  
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/jquery.nice-select.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
