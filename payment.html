@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>AutoBid</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="assets/images/AutoBid logo.png" type="image/gif" sizes="20x20">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/boxicons.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style3.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <style>
+        .modal {
+        width: fit-content;
+        height: fit-content;
+        background: #FFFFFF;
+        box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 26px;
+        max-width: 450px;
+        }
+
+        .form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        }
+
+        .payment--options {
+        width: calc(100% - 40px);
+        display: grid;
+        grid-template-columns: 33% 34% 33%;
+        gap: 20px;
+        padding: 10px;
+        }
+
+        .payment--options button {
+        height: 55px;
+        background: #F2F2F2;
+        border-radius: 11px;
+        padding: 0;
+        border: 0;
+        outline: none;
+        }
+
+        .payment--options button svg {
+        height: 18px;
+        }
+
+        .payment--options button:last-child svg {
+        height: 22px;
+        }
+
+        .separator {
+        width: calc(100% - 20px);
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 10px;
+        color: #8B8E98;
+        margin: 0 10px;
+        }
+
+        .separator > p {
+        word-break: keep-all;
+        display: block;
+        text-align: center;
+        font-weight: 600;
+        font-size: 11px;
+        margin: auto;
+        }
+
+        .separator .line {
+        display: inline-block;
+        width: 100%;
+        height: 1px;
+        border: 0;
+        background-color: #e8e8e8;
+        margin: auto;
+        }
+
+        .credit-card-info--form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        }
+
+        .input_container {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        }
+
+        .split {
+        display: grid;
+        grid-template-columns: 4fr 2fr;
+        gap: 15px;
+        }
+
+        .split input {
+        width: 100%;
+        }
+
+        .input_label {
+        font-size: 10px;
+        color: #8B8E98;
+        font-weight: 600;
+        }
+
+        .input_field {
+        width: auto;
+        height: 40px;
+        padding: 0 0 0 16px;
+        border-radius: 9px;
+        outline: none;
+        background-color: #F2F2F2;
+        border: 1px solid #e5e5e500;
+        transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+        }
+
+        .input_field:focus {
+        border: 1px solid transparent;
+        box-shadow: 0px 0px 0px 2px #242424;
+        background-color: transparent;
+        }
+
+        .purchase--btn {
+        height: 55px;
+        width: 295px;
+        background: #F2F2F2;
+        border-radius: 11px;
+        border: 0;
+        outline: none;
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 700;
+        background: linear-gradient(180deg, #363636 0%, #1B1B1B 50%, #000000 100%);
+        box-shadow: 0px 0px 0px 0px #FFFFFF, 0px 0px 0px 0px #000000;
+        transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+        }
+
+        .purchase--btn:hover {
+        box-shadow: 0px 0px 0px 2px #FFFFFF, 0px 0px 0px 4px #0000003a;
+        }
+
+        /* Reset input number styles */
+        .input_field::-webkit-outer-spin-button,
+        .input_field::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+
+        .input_field[type=number] {
+        -moz-appearance: textfield;
+        }
+    </style>
+  </head>
+  <body>
+    
+
+    <!--Header Part-->
+
+    <header>
+      <div class="header-area header-style-one px-md-5">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-2 align-items-center d-xl-flex d-lg-block">
+              <div class="nav-logo d-flex justify-content-between align-items-center">
+                <a href="index.html"><img src="assets/images/AutoBid logo.png"style="width: 60px;" alt="logo"></a>
+                <div class="d-flex align-items-center gap-4">
+                  <ul class="nav-actions nav-inner-actions d-flex d-xl-none">
+                    <li class="header-account me-0 position-relative">
+                      <a href="login.html" id="dropdownMenu4" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-fill"></i>
+                      </a>
+                      <ul class="dropdown-menu account-list-mobile" aria-labelledby="dropdownMenu4">
+                        <li class="dropdown-item"><a href="login.html">My account</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-5">
+              <nav class="main-nav">
+                <div class="inner-logo d-xl-none text-center mt-4">
+                  <a href="#"><img src="assets/images/logo-dark.png" alt></a>
+                </div>
+                <ul>
+                  <li>
+                    <a href="index.html">Home</a>
+                  </li>
+                  <li>
+                    <a href="auction.html">Auction</a>
+                  </li>
+                  <li class="has-child-menu">
+                    <a href="javascript:void(0)">Pages</a>
+                    <i class="fl flaticon-plus">+</i>
+                    <ul class="sub-menu">
+                      <li><a href="about.html">about</a></li>
+                      <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="contact.html">contact</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="col-xl-5 d-xl-flex align-items-center justify-content-end d-none">
+              <div class="nav-right d-flex align-items-center">
+                <div class="nav-actions d-flex align-items-center">
+                    <a href="MyAccount.html"><img src="assets/images/images/notification-bell.png" style="width: 30px;"/></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <!--DashBoard-->
+    <div class="head">
+        <div class="side-nav">
+          <ul class="ul">
+            <a href="MyAccount.html" >
+              <li><img src="assets/images/images/members.png" alt="">
+                <p>My Profile</p>
+              </li>
+            </a>
+            <a href="DashBoard.html">
+              <li><img src="assets/images/images/dashboard.png" alt="">
+                <p>DashBoard</p>
+              </li>
+            </a>
+            <a href="CreateAd.html">
+              <li><img src="assets/images/images/rewards.png" alt="">
+                <p>Create New AD</p>
+              </li>
+            </a>
+            <a href="Settings.html">
+              <li><img src="assets/images/images/setting.png" alt="">
+                <p>Settings</p>
+              </li>
+            </a>
+          </ul>
+          <ul class="ul">
+            <li id="logout-button" style="cursor: pointer; ">  <!-- Add cursor style for better UX -->
+                <img src="assets/images/images/setting.png" alt="">
+                <p>Log Out</p>
+            </li>
+        </ul>
+        </div>
+        <div class="main_content My-Dashboard">
+            <div class="header">Payment
+            </div>
+            <div class="">
+                <div class=""id="auctionList">
+                    <div class="" >
+                        <div class="">
+                            <form class="form">
+                                <div class="credit-card-info--form">
+                                  <div class="input_container">
+                                    <label for="password_field" class="input_label">Card holder full name</label>
+                                    <input id="password_field" class="input_field" type="text" name="input-name" title="Inpit title" placeholder="Enter your full name">
+                                  </div>
+                                  <div class="input_container">
+                                    <label for="password_field" class="input_label">Card Number</label>
+                                    <input id="password_field" class="input_field" type="number" name="input-name" title="Inpit title" placeholder="0000 0000 0000 0000">
+                                  </div>
+                                  <div class="input_container">
+                                    <label for="password_field" class="input_label">Expiry Date / CVV</label>
+                                    <div class="split">
+                                    <input id="password_field" class="input_field" type="text" name="input-name" title="Expiry Date" placeholder="01/23">
+                                    <input id="password_field" class="input_field" type="number" name="cvv" title="CVV" placeholder="CVV">
+                                  </div>
+                                  </div>
+                                </div>
+                              </form>
+                        </div>
+                        <input type="submit" class="purchase--btn" value="Checkout"></input>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <script>
+            // Fetch user info using the JWT token
+            function fetchUserInfo() {
+                const jwtToken = localStorage.getItem('jwtToken'); // Get the stored JWT token
+                // Implement your logic to fetch and handle user info using the JWT token
+            }
+        
+            // Get the user ID from the URL
+            function getUserIdFromUrl() {
+                console.log("Query String:", window.location.search);
+        
+                const urlParams = new URLSearchParams(window.location.search);
+                const userId = urlParams.get('userId') || 'null'; // Return 'null' if userId is not found
+        
+                // Update links with userId
+                const dashboardLink = document.querySelector('a[href="DashBoard.html"]');
+                const settingsLink = document.querySelector('a[href="Settings.html"]');
+                const createNewLink = document.querySelector('a[href="CreateAd.html"]');
+                const paymentLink = document.querySelector('a[href="payment.html"]');
+                const notificationLink = document.querySelector('a[href="Notification.html"]');
+        
+                if (dashboardLink) {
+                    dashboardLink.href = `DashBoard.html?userId=${userId}`;
+                }
+        
+                if (createNewLink) {
+                    createNewLink.href = `CreateAD.html?userId=${userId}`;
+                }
+        
+                if (settingsLink) {
+                    settingsLink.href = `Settings.html?userId=${userId}`;
+                }
+        
+                if (notificationLink) {
+                    notificationLink.href = `Notification.html?userId=${userId}`;
+                }
+        
+                if (paymentLink) {
+                    paymentLink.href = `payment.html?userId=${userId}`;
+                }
+        
+                console.log('Extracted userId:', userId); // Log the extracted userId for debugging
+                return userId;
+            }
+        
+            // Function to handle payment form submission
+            async function handlePaymentSubmission(event) {
+                event.preventDefault(); // Prevent default form submission
+        
+                const jwtToken = localStorage.getItem('jwtToken'); // Get the stored JWT token
+        
+                // Check if the token is available
+                if (!jwtToken) {
+                    alert("Unauthorized: Please log in to proceed with payment.");
+                    return;
+                }
+        
+                // Get values from form inputs
+                const cardholderName = document.querySelector('input[placeholder="Enter your full name"]').value;
+                const cardNumber = document.querySelector('input[placeholder="0000 0000 0000 0000"]').value;
+                const expiryDate = document.querySelector('input[placeholder="01/23"]').value;
+                const cvv = document.querySelector('input[placeholder="CVV"]').value;
+        
+                // Payment request details
+                const paymentRequest = {
+                    Amount: 100, // Replace with the actual amount
+                    Currency: 'usd' // Use the appropriate currency
+                };
+        
+                try {
+                    // Create payment intent
+                    const response = await fetch('https://localhost:7047/api/payment/create-payment-intent', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${jwtToken}`
+                        },
+                        body: JSON.stringify(paymentRequest)
+                    });
+        
+                    // Check if the response is successful
+                    if (!response.ok) {
+                        // Handle unauthorized error or any other errors
+                        const errorMessage = response.status === 401 ? "Unauthorized" : `Error: ${response.statusText}`;
+                        console.error(errorMessage);
+                        alert(errorMessage);
+                        return;
+                    }
+        
+                    // Parse the JSON response only if it’s valid
+                    const result = await response.json();
+        
+                    const clientSecret = result.clientSecret;
+                    console.log("Payment Intent created successfully!", clientSecret);
+        
+                    // Show success alert
+                    alert("Payment Successful!");
+        
+                    // Confirm payment with Stripe (dummy function for now)
+                    await confirmPaymentWithStripe(clientSecret, cardholderName, cardNumber, expiryDate, cvv);
+                } catch (error) {
+                    console.error("Error in payment submission:", error);
+                }
+            }
+        
+            // Function to confirm payment with Stripe (to be implemented)
+            async function confirmPaymentWithStripe(clientSecret, cardholderName, cardNumber, expiryDate, cvv) {
+                // Use Stripe.js to confirm the payment with clientSecret and card details
+                // For example, create a Stripe payment method using the provided card information
+            }
+        
+            // Initialize the user ID and link updates when the page loads
+            document.addEventListener('DOMContentLoaded', () => {
+                getUserIdFromUrl();
+            });
+        
+            // Add event listener for the "Checkout" button
+            document.querySelector('.purchase--btn').addEventListener('click', handlePaymentSubmission);
+        </script>
+        
+        
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/jquery.nice-select.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
