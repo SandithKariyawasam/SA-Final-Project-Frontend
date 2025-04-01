@@ -93,6 +93,7 @@
               // Redirect to Login.html
               window.location.href = 'login.html';
           } else {
+              console.log('User registered not successfully');
               const data = await response.json();
               alert(data);
           }
